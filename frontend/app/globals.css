@@ -48,3 +48,23 @@ body {
 .dela_gothic_one {
   font-family: var(--font-dela-gothic-one);
 }
+
+nav a {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: var(--green);
+}
+
+nav a:last-child {
+  background-color: var(--green);
+  color: white;
+  border-radius: 0.375rem;
+}
+
+nav a:last-child:hover {
+  background-color: rgba(101, 136, 100, 0.8);
+  text-decoration: none;
+}

@@ -8,6 +8,7 @@
   --second-white: #DDDDDD;
   --sage: #B7B78A;
   --green: #658864;
+  --dark-green: #3A473A;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -130,6 +131,14 @@ nav a:last-child:hover {
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
+}
+
+.first-card h3 {
+  color: var(--dark-green)
+}
+
+.second-card h3 {
+  color: var(--dark-green)
 }
 
 .first-card {

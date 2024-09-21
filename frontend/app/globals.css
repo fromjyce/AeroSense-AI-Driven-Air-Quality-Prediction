@@ -41,6 +41,11 @@ body {
   font-family: var(--font-oswald);
 }
 
+.oswald_card_title {
+  font-family: var(--font-oswald);
+  margin-bottom: 13px;
+}
+
 .josefin_sans{
   font-family: var(--font-josefin-sans);
 }

@@ -107,3 +107,25 @@ nav a:last-child:hover {
   max-width: 300px;
   height: auto;
 }
+
+.dashboard-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.first-card, .second-card {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.first-card {
+  width: 30%;
+}
+
+.second-card {
+  width: 70%;
+}

@@ -120,6 +120,7 @@ export default function Dashboard() {
           )}
         </div>
         <div className="secondary-input-boxes">
+          <div className='flex flex-row gap-12'>
           <div className='flex flex-col items-start'>
             <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
             <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
@@ -128,6 +129,19 @@ export default function Dashboard() {
               <option value="datetime">Predict DataTime wise</option>
             </select>
           </div>
+          <div className='flex flex-row gap-1 items-center mt-8'>
+            <input 
+              type="checkbox" 
+              id="with-range" 
+              onChange={(e) => console.log(e.target.checked)}
+              className="mr-2"
+            />
+            <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
+          </div>
+          </div>
+        </div>
+        <div className='actual-input-boxes'>
+
         </div>
       </div>
 

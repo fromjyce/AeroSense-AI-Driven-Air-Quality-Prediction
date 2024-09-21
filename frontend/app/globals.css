@@ -17,11 +17,31 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+.questrial {
+  font-family: var(--font-questrial);
+}
+
+.poppins {
+  font-family: var(--font-poppins);
+}
+
+.oswald {
+  font-family: var(--font-oswald);
+}
+
+.josefin_sans{
+  font-family: var(--font-josefin-sans);
+}
+
+.dela_gothic_one {
+  font-family: var(--font-dela-gothic-one);
 }

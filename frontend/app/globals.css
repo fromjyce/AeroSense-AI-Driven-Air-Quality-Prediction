@@ -68,3 +68,11 @@ nav a:last-child:hover {
   background-color: rgba(101, 136, 100, 0.8);
   text-decoration: underline;
 }
+
+.title-card {
+  color: var(--green);
+}
+
+.title-card:hover {
+  color: rgba(101, 136, 100, 0.8);
+}

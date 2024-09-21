@@ -67,7 +67,7 @@ export default function Dashboard() {
             <div className='flex flex-col items-start'>
               {predictOption === 'city' && (
                 <>
-                  <label htmlFor="city-select" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select A City.</label>
+                  <label htmlFor="city-select" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a City.</label>
                   <select id="city-select" className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
                     <option value="">--Select a city--</option>
                     {cities.map((city, index) => (

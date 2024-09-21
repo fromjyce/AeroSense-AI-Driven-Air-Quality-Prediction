@@ -66,5 +66,5 @@ nav a:last-child {
 
 nav a:last-child:hover {
   background-color: rgba(101, 136, 100, 0.8);
-  text-decoration: none;
+  text-decoration: underline;
 }

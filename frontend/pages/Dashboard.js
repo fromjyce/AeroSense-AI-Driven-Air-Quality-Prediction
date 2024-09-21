@@ -52,7 +52,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-section flex justify-between gap-8 p-8">
-      <div className="first-card w-[30%] bg-white p-4 shadow-lg flex flex-col items-start">
+      <div id="predict" className="first-card w-[30%] bg-white p-4 shadow-lg flex flex-col items-start">
         <h3 className="text-3xl font-bold text-left oswald_card_title">Predict AQI</h3>
         <div>
           <div className="flex flex-row gap-4">

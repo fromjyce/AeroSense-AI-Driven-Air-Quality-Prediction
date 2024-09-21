@@ -1,5 +1,6 @@
 import "./globals.css";
 import {Questrial, Poppins, Oswald, Josefin_Sans, Dela_Gothic_One} from 'next/font/google';
+import Navbar from "@/pages/Navbar";
 
 const questrial_init = Questrial({
   subsets: ['latin'],
@@ -39,7 +40,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <title>AeroSense</title>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </head>
       <body className={`${questrial_init.variable} ${poppins_init.variable} ${oswald_init.variable} ${josefin_init.variable} ${dela_gothic_init.variable}`}>
+      <Navbar /> 
         {children}
       </body>
     </html>

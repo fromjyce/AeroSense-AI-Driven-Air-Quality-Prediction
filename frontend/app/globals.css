@@ -8,7 +8,9 @@
   --second-white: #DDDDDD;
   --sage: #B7B78A;
   --green: #658864;
+  --another-green: #408955;
   --dark-green: #3A473A;
+  --another-dark-green: #073414;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +56,7 @@ body {
 .josefin_sans_dropdowns {
   font-family: var(--font-josefin-sans);
   margin-bottom: -8px;
+  color: var(--another-dark-green);
 }
 
 .dela_gothic_one {

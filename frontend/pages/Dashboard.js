@@ -13,6 +13,7 @@ export default function Dashboard() {
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [availableCities, setAvailableCities] = useState([]);
+  const [selectOption, setSelectOption] = useState('date');
 
   useEffect(() => {
     Papa.parse(cityDataUrl, {
@@ -54,10 +55,10 @@ export default function Dashboard() {
     <div className="dashboard-section flex justify-between gap-8 p-8">
       <div id="predict" className="first-card w-[30%] bg-white p-4 shadow-lg flex flex-col items-start">
         <h3 className="text-3xl font-bold text-left oswald_card_title">Predict AQI</h3>
-        <div>
+        <div className="input-boxes">
           <div className="flex flex-row gap-4">
             <div className='flex flex-col items-start'>
-              <label htmlFor="predict-option" className="text-lg mt-2 text-left josefin_sans_dropdowns">Select an option.</label>
+              <label htmlFor="predict-option" className="text-lg mt-2 text-left josefin_sans_dropdowns">Select an Option.</label>
               <select id="predict-option" onChange={handleOptionChange} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
                 <option value="city">Predict by City</option>
                 <option value="station">Predict by Station</option>
@@ -94,7 +95,7 @@ export default function Dashboard() {
             <div className="flex flex-row">
               <div className="flex flex-col items-start mr-8">
                 <label htmlFor="city-select" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select A City.</label>
-                <select id="city-select" onChange={(e) => setSelectedCity(e.target.value)} className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+                <select id="city-select" onChange={(e) => setSelectedCity(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
                   <option value="">--Select a city--</option>
                   {availableCities.map((city, index) => (
                     <option key={index} value={city}>{city}</option>
@@ -118,12 +119,22 @@ export default function Dashboard() {
             </div>
           )}
         </div>
+        <div className="secondary-input-boxes">
+          <div className='flex flex-col items-start'>
+            <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
+            <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+              <option value="date">Predict Date wise</option>
+              <option value="hourly">Predict Hourly</option>
+              <option value="datetime">Predict DataTime wise</option>
+            </select>
+          </div>
+        </div>
       </div>
 
       <div className="second-card w-[70%] bg-white p-4 shadow-lg flex flex-col items-start justify-center">
         <h3 className="text-3xl font-bold text-left oswald_card_title">Current Weather Status</h3>
         <p className="text-lg mt-2 text-left josefin_sans">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </p>
       </div>
     </div>

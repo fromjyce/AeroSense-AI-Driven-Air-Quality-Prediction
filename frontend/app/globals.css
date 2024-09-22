@@ -164,3 +164,50 @@ nav a:last-child:hover {
 .predict-button:hover {
   background-color: rgba(101, 136, 100, 0.8);
 }
+
+.outer-container {
+  padding-left: 2rem; /* Adjust this value to your preferred gap size */
+  padding-right: 2rem; /* Adjust this value to your preferred gap size */
+}
+
+.past-aqi-section {
+  background-color: var(--second-white);
+  padding: 1rem 2rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.past-aqi-section h3 {
+  color: var(--dark-green)
+}
+
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.first-card-footer, .second-card-footer {
+  background-color: var(--second-white);
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.first-card-footer h3 {
+  color: var(--dark-green)
+}
+
+.second-card-footer h3 {
+  color: var(--dark-green)
+}
+
+.first-card-footer {
+  width: 68%;
+}
+
+.second-card-footer {
+  width: 32%;
+}

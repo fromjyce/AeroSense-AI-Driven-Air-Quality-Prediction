@@ -17,7 +17,10 @@ export default function Dashboard() {
   const [availableCities, setAvailableCities] = useState([]);
   const [selectOption, setSelectOption] = useState('date');
   const [selectedDate, setSelectedDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+  const [isWithRange, setIsWithRange] = useState(false);
 
   useEffect(() => {
     Papa.parse(cityDataUrl, {
@@ -58,6 +61,11 @@ export default function Dashboard() {
   const handleTimeChange = (e) => {
     const timeValue = e.target.value + ":00";
     setSelectedTime(timeValue);
+  };
+
+  const handleEndTimeChange = (e) => {
+    const timeValue = e.target.value + ":00";
+    setEndTime(timeValue);
   };
 
   return (
@@ -142,7 +150,7 @@ export default function Dashboard() {
               <input 
                 type="checkbox" 
                 id="with-range" 
-                onChange={(e) => console.log(e.target.checked)}
+                onChange={(e) => setIsWithRange(e.target.checked)}
                 className="mr-2"
               />
               <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
@@ -151,51 +159,81 @@ export default function Dashboard() {
         </div>
         <div className='actual-input-boxes'>
           {selectOption === 'date' && (
-            <div className='flex flex-col items-start'>
-              <label htmlFor="date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
+            <div className='flex flex-row gap-4'>
+              <div className='flex flex-col items-start'>
+              <label htmlFor="date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date.</label>
               <DatePicker
                 id="date-picker"
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
-                className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
                 dateFormat="yyyy-MM-dd"
               />
+              </div>
+              {isWithRange && (
+                <div className='flex flex-col items-start'>
+                  <label htmlFor="end-date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Date.</label>
+                  <DatePicker
+                    id="end-date-picker"
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                    dateFormat="yyyy-MM-dd"
+                  />
+                </div>
+              )}
             </div>
           )}
 
           {selectOption === 'hourly' && (
-            <div className='flex flex-col items-start'>
-              <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
-              <input
-                type="time"
-                id="time-picker"
-                onChange={handleTimeChange}
-                className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+            <div className='flex flex-row gap-4'>
+              <div className='flex flex-col items-start'>
+              <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Hour.</label>
+              <input 
+                type="time" 
+                value={selectedTime} 
+                onChange={handleTimeChange} 
+                className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown" 
               />
+              </div>
+              {isWithRange && (
+                <div className='flex flex-col items-start'>
+                  <label htmlFor="end-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Hour.</label>
+                  <input 
+                    type="time" 
+                    value={endTime} 
+                    onChange={handleEndTimeChange} 
+                    className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown" 
+                  />
+                </div>
+              )}
             </div>
           )}
 
           {selectOption === 'datetime' && (
             <div className='flex flex-row gap-4'>
               <div className='flex flex-col items-start'>
-                <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
-                <DatePicker
-                  id="date-picker"
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                  dateFormat="yyyy-MM-dd"
-                />
+              <label htmlFor="date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date & Time.</label>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                showTimeSelect
+                dateFormat="Pp"
+                className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+              />
               </div>
-              <div className='flex flex-col items-start'>
-                <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
-                <input
-                  type="time"
-                  id="time-picker"
-                  onChange={handleTimeChange}
-                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                />
-              </div>
+              {isWithRange && (
+                <div className='flex flex-col items-start'>
+                  <label htmlFor="end-date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Date & Time.</label>
+                  <DatePicker
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    showTimeSelect
+                    dateFormat="Pp"
+                    className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>

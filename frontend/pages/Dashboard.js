@@ -261,36 +261,40 @@ export default function Dashboard() {
     </div>
   )}
 
-  {selectOption === 'datetime' && (
-    <div className='flex flex-row gap-4'>
+{selectOption === 'datetime' && (
+  <div className='flex flex-row gap-4'>
+    <div className='flex flex-col items-start'>
+      <label htmlFor="date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
+        {isWithRange ? 'Select a Start Date & Time.' : 'Select a Date & Time.'}
+      </label>
+      <DatePicker
+        selected={selectedDate}
+        onChange={handleStartDateChange}
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={60}
+        dateFormat="yyyy-MM-dd HH:mm"
+        className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+        minDate={today}
+      />
+    </div>
+    {isWithRange && (
       <div className='flex flex-col items-start'>
-        <label htmlFor="date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
-          {isWithRange ? 'Select a Start Date & Time.' : 'Select a Date & Time.'}
-        </label>
+        <label htmlFor="end-date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Date & Time.</label>
         <DatePicker
-          selected={selectedDate}
-          onChange={handleStartDateChange}
+          selected={endDate}
+          onChange={handleEndDateChange}
           showTimeSelect
-          dateFormat="Pp"
-          className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
-          minDate={today}
+          timeFormat="HH:mm"
+          timeIntervals={60}
+          dateFormat="yyyy-MM-dd HH:mm"
+          className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+          minDate={selectedDate ? new Date(selectedDate) : today}
         />
       </div>
-      {isWithRange && (
-        <div className='flex flex-col items-start'>
-          <label htmlFor="end-date-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Date & Time.</label>
-          <DatePicker
-            selected={endDate}
-            onChange={handleEndDateChange}
-            showTimeSelect
-            dateFormat="Pp"
-            className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-            minDate={selectedDate ? new Date(selectedDate) : today}
-          />
-        </div>
-      )}
-    </div>
-  )}
+    )}
+  </div>
+)}
 </div>
       </div>
 

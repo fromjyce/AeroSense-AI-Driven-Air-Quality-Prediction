@@ -408,7 +408,7 @@ const handleEndTimeChange = (e) => {
   </div>
   <button 
         onClick={handlePredict}
-        className="mt-4 text-white p-2 rounded questrial predict-button">Predict</button>
+        className="mt-4 text-white font-bold p-2 rounded questrial predict-button">Predict</button>
     </>
   );
 }

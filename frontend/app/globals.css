@@ -215,11 +215,13 @@ nav a:last-child:hover {
 .iframe-container {
   position: relative;
   width: 100%;
-  max-width: 650px;
+  max-width: 685px;
   height: 300px;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
+  margin-top: -20px;
+  border-radius: 0.5rem;
 }
 
 .responsive-iframe {

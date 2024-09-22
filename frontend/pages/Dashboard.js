@@ -59,39 +59,62 @@ export default function Dashboard() {
     setAvailableCities(Object.keys(stations[e.target.value] || {}));
   };
 
-  const handleTimeChange = (e) => {
-    const timeValue = e.target.value + ":00";
-    setSelectedTime(timeValue);
-  };
+const handleTimeChange = (e) => {
+  const selectedHour = parseInt(e.target.value, 10);
+  const currentHour = new Date().getHours();
 
-  const isValidDateRange = (startDate, endDate, maxDays) => {
-    const differenceInTime = endDate.getTime() - startDate.getTime();
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    return differenceInDays <= maxDays;
+  if (selectedHour <= currentHour) {
+    alert('Please select a start hour in the future.');
+  } else {
+    setSelectedTime(`${String(selectedHour).padStart(2, '0')}:00:00`);
+  }
+};
+
+const handleEndTimeChange = (e) => {
+  const selectedEndHour = parseInt(e.target.value, 10);
+  const startHour = parseInt(selectedTime.split(':')[0], 10);
+  const currentHour = new Date().getHours();
+  const diffHours = selectedEndHour - startHour;
+
+  if (selectedEndHour <= startHour) {
+    alert('End hour must be after the start hour.');
+  } else if (diffHours > 15) {
+    alert('The difference between start hour and end hour should not exceed 15 hours.');
+  } else if (selectedEndHour <= currentHour) {
+    alert('Please select an end hour in the future.');
+  } else {
+    setEndTime(`${String(selectedEndHour).padStart(2, '0')}:00:00`);
+  }
+};
+
+  const isValidDate = (date) => {
+    const dateFormat = /^\d{4}-\d{2}-\d{2}$/;
+    const timeFormat = /^\d{2}:\d{2}:\d{2}$/;
+
+    if (!date) return false;
+
+    const dateString = date.toISOString().split('T')[0];
+    const timeString = date.toTimeString().split(' ')[0];
+
+    return dateFormat.test(dateString) && timeFormat.test(timeString);
   };
 
   const handleStartDateChange = (date) => {
-    if (isWithRange && endDate && !isValidDateRange(date, endDate, 15)) {
-      alert("End date must be within 15 days of the start date.");
-    } else {
-      setSelectedDate(date);
-    }
+    setSelectedDate(date);
   };
   
   const handleEndDateChange = (date) => {
-    if (!isValidDateRange(selectedDate, date, 15)) {
-      alert("End date must be within 15 days of the start date.");
+    const diffInDays = (date - selectedDate) / (1000 * 60 * 60 * 24);
+    const diffInHours = (date - selectedDate) / (1000 * 60 * 60);
+
+    if (selectOption === 'date' && diffInDays > 15) {
+      alert('The difference between start date and end date should not exceed 15 days.');
+    } else if (selectOption === 'hourly' && diffInHours > 15) {
+      alert('The difference between start hour and end hour should not exceed 15 hours.');
+    } else if (selectOption === 'datetime' && diffInDays > 10) {
+      alert('The difference between start date and end date should not exceed 10 days.');
     } else {
       setEndDate(date);
-    }
-  };
-
-  const handleEndTimeChange = (time) => {
-    const timeValue = time + ":00";
-    if (!isValidDateRange(new Date(`1970-01-01T${selectedTime}`), new Date(`1970-01-01T${timeValue}`), 15 / 24)) {
-      alert("End hour must be within 15 hours of the start hour.");
-    } else {
-      setEndTime(timeValue);
     }
   };
 
@@ -164,100 +187,146 @@ export default function Dashboard() {
           )}
         </div>
         <div className="secondary-input-boxes">
-          <div className='flex flex-row gap-12'>
-            <div className='flex flex-col items-start'>
-              <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
-              <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
-                <option value="date">Predict Date wise</option>
-                <option value="hourly">Predict Hourly</option>
-                <option value="datetime">Predict DataTime wise</option>
-              </select>
-            </div>
-            <div className='flex flex-row gap-1 items-center mt-3'>
-              <input 
-                type="checkbox" 
-                id="with-range" 
-                onChange={(e) => setIsWithRange(e.target.checked)}
-                className="mr-2"
-              />
-              <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
-            </div>
+        <div className='flex flex-row gap-12'>
+          <div className='flex flex-col items-start'>
+            <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
+            <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+              <option value="date">Predict Date wise</option>
+              <option value="hourly">Predict Hourly</option>
+              <option value="datetime">Predict DateTime wise</option>
+            </select>
+          </div>
+          <div className='flex flex-row gap-1 items-center mt-3'>
+            <input
+              type="checkbox"
+              id="with-range"
+              onChange={(e) => setIsWithRange(e.target.checked)}
+              className="mr-2"
+            />
+            <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
           </div>
         </div>
-        <div className='actual-input-boxes'>
-          {selectOption === 'date' && (
-            <div className='flex flex-row gap-4'>
-              <div className='flex flex-col'>
-                <label className="mt-2 text-lg text-left josefin_sans_dropdowns">Start Date</label>
-                <DatePicker 
-                  selected={selectedDate} 
-                  onChange={handleStartDateChange} 
-                  minDate={today}
-                  className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+      </div>
+
+      <div className='actual-input-boxes'>
+        {selectOption === 'date' && (
+          <div className='flex flex-row gap-4'>
+            <div className='flex flex-col items-start'>
+              <label htmlFor="date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
+                {isWithRange ? 'Select a Start Date.' : 'Select a Date.'}
+              </label>
+              <DatePicker
+                id="date-picker"
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+                dateFormat="yyyy-MM-dd"
+                minDate={today}
+              />
+            </div>
+            {isWithRange && (
+              <div className='flex flex-col items-start'>
+                <label htmlFor="end-date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Date.</label>
+                <DatePicker
+                  id="end-date-picker"
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                  dateFormat="yyyy-MM-dd"
+                  minDate={selectedDate ? new Date(selectedDate) : today}
                 />
               </div>
-              {isWithRange && (
-                <div className='flex flex-col'>
-                  <label className="mt-2 text-lg text-left josefin_sans_dropdowns">End Date</label>
-                  <DatePicker 
-                    selected={endDate} 
-                    onChange={handleEndDateChange} 
-                    minDate={selectedDate ? selectedDate : today}
-                    className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                  />
-                </div>
-              )}
+            )}
+          </div>
+        )}
+        {selectOption === 'hourly' && (
+          <div className='flex flex-row gap-4'>
+            <div className='flex flex-col items-start'>
+              <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
+                {isWithRange ? 'Select a Start Hour.' : 'Select an Hour.'}
+              </label>
+              <select
+              value={selectedTime.split(':')[0]}
+              onChange={handleTimeChange}
+              className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+            >
+              {Array.from({ length: 24 }, (_, i) => {
+                const currentHour = new Date().getHours();
+                return (
+                  <option
+                    key={i}
+                    value={String(i).padStart(2, '0')}
+                    disabled={i <= currentHour}
+                  >
+                    {String(i).padStart(2, '0')}
+                  </option>
+                );
+              })}
+            </select>
             </div>
-          )}
-          {selectOption === 'hourly' && (
-            <div className='flex flex-row gap-4'>
-              <div className='flex flex-col'>
-                <label className="mt-2 text-lg text-left josefin_sans_dropdowns">Start Hour</label>
-                <input 
-                  type="time" 
-                  onChange={handleTimeChange} 
-                  className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                />
+            {isWithRange && (
+              <div className='flex flex-col items-start'>
+                <label htmlFor="end-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Hour.</label>
+                <select
+                  value={endTime.split(':')[0]}
+                  onChange={handleEndTimeChange}
+                  className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+                >
+                  {Array.from({ length: 24 }, (_, i) => {
+                    const startHour = parseInt(selectedTime.split(':')[0], 10);
+                    return (
+                      <option
+                        key={i}
+                        value={String(i).padStart(2, '0')}
+                        disabled={i <= startHour || i - startHour > 15}
+                      >
+                        {String(i).padStart(2, '0')}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
-              {isWithRange && (
-                <div className='flex flex-col'>
-                  <label className="mt-2 text-lg text-left josefin_sans_dropdowns">End Hour</label>
-                  <input 
-                    type="time" 
-                    onChange={handleEndTimeChange} 
-                    className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                  />
-                </div>
-              )}
+            )}
+          </div>
+        )}
+
+        {selectOption === 'datetime' && (
+          <div className='flex flex-row gap-4'>
+            <div className='flex flex-col items-start'>
+              <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
+                {isWithRange ? 'Select a Start DateTime.' : 'Select a DateTime.'}
+              </label>
+              <DatePicker
+                id="datetime-picker"
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="yyyy-MM-dd HH:mm"
+                minDate={today}
+              />
             </div>
-          )}
-          {selectOption === 'datetime' && (
-            <div className='flex flex-row gap-4'>
-              <div className='flex flex-col'>
-                <label className="mt-2 text-lg text-left josefin_sans_dropdowns">Start Date & Time</label>
-                <DatePicker 
-                  selected={selectedDate} 
-                  onChange={handleStartDateChange} 
-                  minDate={today}
+            {isWithRange && (
+              <div className='flex flex-col items-start'>
+                <label htmlFor="end-datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End DateTime.</label>
+                <DatePicker
+                  id="end-datetime-picker"
+                  selected={endDate}
+                  onChange={handleEndDateChange}
+                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
                   showTimeSelect
-                  className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  dateFormat="yyyy-MM-dd HH:mm"
+                  minDate={selectedDate || today}
                 />
               </div>
-              {isWithRange && (
-                <div className='flex flex-col'>
-                  <label className="mt-2 text-lg text-left josefin_sans_dropdowns">End Date & Time</label>
-                  <DatePicker 
-                    selected={endDate} 
-                    onChange={handleEndDateChange} 
-                    minDate={selectedDate ? selectedDate : today}
-                    showTimeSelect
-                    className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                  />
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
+      </div>
       </div>
 
       <div className="second-card w-[70%] bg-white p-4 shadow-lg flex flex-col items-start justify-center">

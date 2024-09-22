@@ -211,3 +211,9 @@ nav a:last-child:hover {
 .second-card-footer {
   width: 32%;
 }
+
+.update-footer-section {
+  width: 100%;
+  background-color: var(--another-dark-green);
+  height: 10px;
+}

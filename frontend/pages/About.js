@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="about-section flex justify-between items-center gap-8 p-8">
+    <div id="about" className="about-section flex justify-between items-center gap-8 p-8">
       <div className="text-content flex-1">
         <h2 className="text-3xl font-bold">
           <span className="questrial">About</span>

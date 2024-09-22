@@ -100,8 +100,13 @@ const handleEndTimeChange = (e) => {
   };
 
   const handleStartDateChange = (date) => {
-    setSelectedDate(date);
-  };
+    if (date) {
+        setSelectedDate(date);
+        if (selectOption === 'hourly' || selectOption === 'datetime') {
+            setSelectedTime('00:00:00');
+        }
+    }
+};
   
   const handleEndDateChange = (date) => {
     const diffInDays = (date - selectedDate) / (1000 * 60 * 60 * 24);
@@ -117,6 +122,81 @@ const handleEndTimeChange = (e) => {
       setEndDate(date);
     }
   };
+
+  const handlePredict = () => {
+    if (!selectedCity && predictOption === 'city') {
+        alert("Please select a city.");
+        return;
+    }
+    if (!selectedDate) {
+        alert("Please select a date.");
+        return;
+    }
+
+    if (selectOption === 'hourly' && !selectedTime) {
+        alert("Please select a time.");
+        return;
+    }
+
+    if (isWithRange && (!endDate || (selectOption === 'hourly' && !endTime))) {
+        alert("Please select an end date/time for range.");
+        return;
+    }
+
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    
+    if (predictOption === 'city') {
+        const cityName = selectedCity.split(',')[0];
+        if (!isWithRange) {
+            if (selectOption === 'date') {
+                console.log(1, cityName, formattedDate);
+            } else if (selectOption === 'hourly') {
+                console.log(2, cityName, `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`);
+            } else if (selectOption === 'datetime') {
+              const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
+              console.log(3, cityName, selectedDateTime.toISOString());
+            }
+        } else {
+            if (selectOption === 'date') {
+                console.log(4, cityName, formattedDate, endDate.toISOString().split('T')[0]);
+            } else if (selectOption === 'hourly') {
+                console.log(5, cityName, `${formattedDate} ${selectedTime}`, `${endDate.toISOString().split('T')[0]} ${endTime}`);
+            } else if (selectOption === 'datetime') {
+                const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
+                const endDateTime = new Date(`${endDate.toISOString().split('T')[0]}T${endTime}`);
+                console.log(6, cityName, selectedDateTime.toISOString(), endDateTime.toISOString());
+            }
+        }
+    }
+
+    if (predictOption === 'station' && selectedCity) {
+        const station = stations[selectedState][selectedCity].find((stn) => stn.status === 'Active');
+        if (!station) {
+            alert("Please select an active station.");
+            return;
+        }
+        if (!isWithRange) {
+            if (selectOption === 'date') {
+                console.log(7, station.id, formattedDate);
+            } else if (selectOption === 'hourly') {
+                console.log(8, station.id, `${formattedDate} ${selectedTime}`);
+            } else if (selectOption === 'datetime') {
+                const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
+                console.log(9, station.id, selectedDateTime.toISOString());
+            }
+        } else {
+            if (selectOption === 'date') {
+                console.log(10, station.id, formattedDate, endDate.toISOString().split('T')[0]);
+            } else if (selectOption === 'hourly') {
+                console.log(11, station.id, `${formattedDate} ${selectedTime}`, `${endDate.toISOString().split('T')[0]} ${endTime}`);
+            } else if (selectOption === 'datetime') {
+                const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
+                const endDateTime = new Date(`${endDate.toISOString().split('T')[0]}T${endTime}`);
+                console.log(12, station.id, selectedDateTime.toISOString(), endDateTime.toISOString());
+            }
+        }
+    }
+};
 
   return (
     <div className="dashboard-section flex justify-between gap-8 p-8">
@@ -135,7 +215,7 @@ const handleEndTimeChange = (e) => {
               {predictOption === 'city' && (
                 <>
                   <label htmlFor="city-select" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a City.</label>
-                  <select id="city-select" className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+                  <select id="city-select" onChange={(e) => setSelectedCity(e.target.value)} className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
                     <option value="">--Select a city--</option>
                     {cities.map((city, index) => (
                       <option key={index} value={city}>{city}</option>
@@ -218,7 +298,7 @@ const handleEndTimeChange = (e) => {
               <DatePicker
                 id="date-picker"
                 selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                onChange={handleStartDateChange}
                 className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
                 dateFormat="yyyy-MM-dd"
                 minDate={today}
@@ -303,7 +383,7 @@ const handleEndTimeChange = (e) => {
                 className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
                 showTimeSelect
                 timeFormat="HH:mm"
-                timeIntervals={15}
+                timeIntervals={60}
                 dateFormat="yyyy-MM-dd HH:mm"
                 minDate={today}
               />
@@ -318,7 +398,7 @@ const handleEndTimeChange = (e) => {
                   className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
                   showTimeSelect
                   timeFormat="HH:mm"
-                  timeIntervals={15}
+                  timeIntervals={60}
                   dateFormat="yyyy-MM-dd HH:mm"
                   minDate={selectedDate || today}
                 />
@@ -327,6 +407,9 @@ const handleEndTimeChange = (e) => {
           </div>
         )}
       </div>
+      <button 
+            onClick={handlePredict}
+            className="mt-4 text-white p-2 rounded questrial predict-button">Predict</button>
       </div>
 
       <div className="second-card w-[70%] bg-white p-4 shadow-lg flex flex-col items-start justify-center">

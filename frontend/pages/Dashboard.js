@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const cityDataUrl = '/city_data.csv';
 const stationDataUrl = '/stations_data.csv';
@@ -14,6 +16,8 @@ export default function Dashboard() {
   const [selectedCity, setSelectedCity] = useState('');
   const [availableCities, setAvailableCities] = useState([]);
   const [selectOption, setSelectOption] = useState('date');
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
 
   useEffect(() => {
     Papa.parse(cityDataUrl, {
@@ -123,13 +127,13 @@ export default function Dashboard() {
           <div className='flex flex-row gap-12'>
           <div className='flex flex-col items-start'>
             <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
-            <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+            <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
               <option value="date">Predict Date wise</option>
               <option value="hourly">Predict Hourly</option>
               <option value="datetime">Predict DataTime wise</option>
             </select>
           </div>
-          <div className='flex flex-row gap-1 items-center mt-8'>
+          <div className='flex flex-row gap-1 items-center mt-3'>
             <input 
               type="checkbox" 
               id="with-range" 
@@ -141,7 +145,54 @@ export default function Dashboard() {
           </div>
         </div>
         <div className='actual-input-boxes'>
+          {selectOption === 'date' && (
+            <div className='flex flex-col items-start'>
+              <label htmlFor="date-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
+              <DatePicker
+                id="date-picker"
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                dateFormat="yyyy/MM/dd"
+              />
+            </div>
+          )}
 
+          {selectOption === 'hourly' && (
+            <div className='flex flex-col items-start'>
+              <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
+              <input
+                type="time"
+                id="time-picker"
+                onChange={(e) => setSelectedTime(e.target.value)}
+                className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+              />
+            </div>
+          )}
+
+          {selectOption === 'datetime' && (
+            <div className='flex flex-row gap-4'>
+            <div className='flex flex-col items-start'>
+              <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
+                <DatePicker
+                  id="date-picker"
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                  dateFormat="yyyy/MM/dd"
+                />
+                </div>
+                <div className="flex flex-col items-start">
+                <label htmlFor="datetime-picker" className="mt-1.5 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
+                <input
+                  type="time"
+                  id="time-picker"
+                  onChange={(e) => setSelectedTime(e.target.value)}
+                  className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+                />
+                </div>
+            </div>
+          )}
         </div>
       </div>
 

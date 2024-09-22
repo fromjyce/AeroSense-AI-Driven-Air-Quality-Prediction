@@ -205,11 +205,30 @@ nav a:last-child:hover {
 }
 
 .first-card-footer {
-  width: 70%;
+  width: 65%;
 }
 
 .second-card-footer {
-  width: 30%;
+  width: 35%;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  height: 300px;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-iframe {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  bottom: -27px;
 }
 
 .update-footer-section {
@@ -218,6 +237,6 @@ nav a:last-child:hover {
   height: 10px;
 }
 
-.team-link:hover {
+.hover-link:hover {
   text-decoration: underline;
 }

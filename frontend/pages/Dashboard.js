@@ -224,42 +224,50 @@ export default function Dashboard() {
     </div>
   )}
 
-  {selectOption === 'hourly' && (
-    <div className='flex flex-row gap-4'>
-      <div className='flex flex-col items-start'>
-        <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
-          {isWithRange ? 'Select a Start Hour.' : 'Select an Hour.'}
-        </label>
-        <input 
-          type="time" 
-          value={selectedTime} 
-          onChange={(e) => {
-            const timeValue = e.target.value + ":00";
-            setSelectedTime(timeValue);
-          }} 
-          className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown" 
-        />
-      </div>
-      {isWithRange && (
-        <div className='flex flex-col items-start'>
-          <label htmlFor="end-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Hour.</label>
-          <input 
-            type="time" 
-            value={endTime} 
-            onChange={(e) => {
-              const timeValue = e.target.value + ":00";
-              if (timeValue > selectedTime) {
-                setEndTime(timeValue);
-              } else {
-                alert("End time must be after the start time.");
-              }
-            }} 
-            className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown" 
-          />
-        </div>
-      )}
+{selectOption === 'hourly' && (
+  <div className='flex flex-row gap-4'>
+    <div className='flex flex-col items-start'>
+      <label htmlFor="time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">
+        {isWithRange ? 'Select a Start Hour.' : 'Select an Hour.'}
+      </label>
+      <select
+        value={selectedTime.split(':')[0]}
+        onChange={(e) => {
+          const hourValue = e.target.value;
+          const timeValue = `${hourValue}:00:00`;
+          setSelectedTime(timeValue);
+        }}
+        className="mt-2 p-2 mb-5 border rounded josefin_sans uniform-width-aqi-dropdown"
+      >
+        {Array.from({ length: 24 }, (_, i) => (
+          <option key={i} value={String(i).padStart(2, '0')}>{String(i).padStart(2, '0')}</option>
+        ))}
+      </select>
     </div>
-  )}
+    {isWithRange && (
+      <div className='flex flex-col items-start'>
+        <label htmlFor="end-time-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an End Hour.</label>
+        <select
+          value={endTime.split(':')[0]}
+          onChange={(e) => {
+            const hourValue = e.target.value;
+            const timeValue = `${hourValue}:00:00`;
+            if (timeValue > selectedTime) {
+              setEndTime(timeValue);
+            } else {
+              alert("End time must be after the start time.");
+            }
+          }}
+          className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
+        >
+          {Array.from({ length: 24 }, (_, i) => (
+            <option key={i} value={String(i).padStart(2, '0')}>{String(i).padStart(2, '0')}</option>
+          ))}
+        </select>
+      </div>
+    )}
+  </div>
+)}
 
 {selectOption === 'datetime' && (
   <div className='flex flex-row gap-4'>

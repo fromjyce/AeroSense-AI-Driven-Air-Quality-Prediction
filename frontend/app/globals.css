@@ -166,13 +166,13 @@ nav a:last-child:hover {
 }
 
 .outer-container {
-  padding-left: 2rem; /* Adjust this value to your preferred gap size */
-  padding-right: 2rem; /* Adjust this value to your preferred gap size */
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .past-aqi-section {
   background-color: var(--second-white);
-  padding: 1rem 2rem 2rem;
+  padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   width: 100%;

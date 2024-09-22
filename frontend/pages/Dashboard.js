@@ -200,7 +200,7 @@ const handleEndTimeChange = (e) => {
 
   return (
     <div className="dashboard-section flex justify-between gap-8 p-8">
-      <div id="predict" className="first-card w-[30%] bg-white p-4 shadow-lg flex flex-col items-start">
+      <div id="predict" className="first-card w-[32%] bg-white p-4 shadow-lg flex flex-col items-start">
         <h3 className="text-3xl font-bold text-left oswald_card_title">Predict AQI</h3>
         <div className="input-boxes">
           <div className="flex flex-row gap-4">
@@ -412,7 +412,7 @@ const handleEndTimeChange = (e) => {
             className="mt-4 text-white p-2 rounded questrial predict-button">Predict</button>
       </div>
 
-      <div className="second-card w-[70%] bg-white p-4 shadow-lg flex flex-col items-start justify-center">
+      <div className="second-card w-[68%] bg-white p-4 shadow-lg flex flex-col items-start justify-center">
         <h3 className="text-3xl font-bold text-left oswald_card_title">Current Weather Status</h3>
         <p className="text-lg mt-2 text-left josefin_sans">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

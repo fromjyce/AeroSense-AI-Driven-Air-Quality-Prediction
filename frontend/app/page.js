@@ -2,6 +2,7 @@ import About from "@/pages/About";
 import Dashboard from "@/pages/Dashboard";
 import PastAQI from "@/pages/PastAQI";
 import Footer from "@/pages/Footer";
+import UpdateFooter from "@/pages/UpdateFooter";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Dashboard />
       <PastAQI />
       <Footer />
+      <UpdateFooter />
     </div>
   );
 }

@@ -10,8 +10,6 @@ export default function Home() {
       <Dashboard />
       <PastAQI />
       <Footer />
-      <h1 className="questrial">Hello</h1>
-      <h1 className="dela_gothic_one">Hello</h1>
     </div>
   );
 }

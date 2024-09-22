@@ -158,7 +158,7 @@ nav a:last-child:hover {
 
 .predict-button {
   background-color: var(--another-green);
-  width: 200px;
+  width: 230px;
 }
 
 .predict-button:hover {
@@ -214,11 +214,9 @@ nav a:last-child:hover {
 
 .iframe-container {
   position: relative;
-  width: 100%;
-  max-width: 685px;
+  width: 685px;
   height: 300px;
   padding-bottom: 56.25%;
-  height: 0;
   overflow: hidden;
   margin-top: -20px;
   border-radius: 0.5rem;
@@ -226,7 +224,6 @@ nav a:last-child:hover {
 
 .responsive-iframe {
   position: absolute;
-  left: 0;
   width: 100%;
   height: 100%;
   border: none;

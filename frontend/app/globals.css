@@ -155,3 +155,12 @@ nav a:last-child:hover {
 .uniform-width-aqi-dropdown {
   width: 230px;
 }
+
+.predict-button {
+  background-color: var(--another-green);
+  width: 200px;
+}
+
+.predict-button:hover {
+  background-color: rgba(101, 136, 100, 0.8);
+}

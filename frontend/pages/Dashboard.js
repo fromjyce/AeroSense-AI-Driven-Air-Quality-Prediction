@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [availableCities, setAvailableCities] = useState([]);
   const [selectOption, setSelectOption] = useState('date');
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState('');
 
   useEffect(() => {
     Papa.parse(cityDataUrl, {
@@ -53,6 +53,11 @@ export default function Dashboard() {
   const handleStateChange = (e) => {
     setSelectedState(e.target.value);
     setAvailableCities(Object.keys(stations[e.target.value] || {}));
+  };
+
+  const handleTimeChange = (e) => {
+    const timeValue = e.target.value + ":00";
+    setSelectedTime(timeValue);
   };
 
   return (
@@ -125,23 +130,23 @@ export default function Dashboard() {
         </div>
         <div className="secondary-input-boxes">
           <div className='flex flex-row gap-12'>
-          <div className='flex flex-col items-start'>
-            <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
-            <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
-              <option value="date">Predict Date wise</option>
-              <option value="hourly">Predict Hourly</option>
-              <option value="datetime">Predict DataTime wise</option>
-            </select>
-          </div>
-          <div className='flex flex-row gap-1 items-center mt-3'>
-            <input 
-              type="checkbox" 
-              id="with-range" 
-              onChange={(e) => console.log(e.target.checked)}
-              className="mr-2"
-            />
-            <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
-          </div>
+            <div className='flex flex-col items-start'>
+              <label htmlFor="select-option" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Option.</label>
+              <select id="select-option" value={selectOption} onChange={(e) => setSelectOption(e.target.value)} className="mt-2 mb-5 p-2 border rounded josefin_sans uniform-width-aqi-dropdown">
+                <option value="date">Predict Date wise</option>
+                <option value="hourly">Predict Hourly</option>
+                <option value="datetime">Predict DataTime wise</option>
+              </select>
+            </div>
+            <div className='flex flex-row gap-1 items-center mt-3'>
+              <input 
+                type="checkbox" 
+                id="with-range" 
+                onChange={(e) => console.log(e.target.checked)}
+                className="mr-2"
+              />
+              <label htmlFor="with-range" className="text-lg text-left josefin_sans_dropdowns">With Range</label>
+            </div>
           </div>
         </div>
         <div className='actual-input-boxes'>
@@ -153,7 +158,7 @@ export default function Dashboard() {
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
                 className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                dateFormat="yyyy/MM/dd"
+                dateFormat="yyyy-MM-dd"
               />
             </div>
           )}
@@ -164,7 +169,7 @@ export default function Dashboard() {
               <input
                 type="time"
                 id="time-picker"
-                onChange={(e) => setSelectedTime(e.target.value)}
+                onChange={handleTimeChange}
                 className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
               />
             </div>
@@ -172,25 +177,25 @@ export default function Dashboard() {
 
           {selectOption === 'datetime' && (
             <div className='flex flex-row gap-4'>
-            <div className='flex flex-col items-start'>
-              <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
+              <div className='flex flex-col items-start'>
+                <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select a Date</label>
                 <DatePicker
                   id="date-picker"
                   selected={selectedDate}
                   onChange={(date) => setSelectedDate(date)}
                   className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
-                  dateFormat="yyyy/MM/dd"
+                  dateFormat="yyyy-MM-dd"
                 />
-                </div>
-                <div className="flex flex-col items-start">
-                <label htmlFor="datetime-picker" className="mt-1.5 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
+              </div>
+              <div className='flex flex-col items-start'>
+                <label htmlFor="datetime-picker" className="mt-2 text-lg text-left josefin_sans_dropdowns">Select an Hour</label>
                 <input
                   type="time"
                   id="time-picker"
-                  onChange={(e) => setSelectedTime(e.target.value)}
+                  onChange={handleTimeChange}
                   className="mt-2 p-2 border rounded josefin_sans uniform-width-aqi-dropdown"
                 />
-                </div>
+              </div>
             </div>
           )}
         </div>

@@ -217,3 +217,7 @@ nav a:last-child:hover {
   background-color: var(--another-dark-green);
   height: 10px;
 }
+
+.team-link:hover {
+  text-decoration: underline;
+}

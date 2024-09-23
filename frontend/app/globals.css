@@ -75,6 +75,7 @@ nav a {
 nav a:hover {
   text-decoration: underline;
   color: var(--green);
+  cursor: pointer;
 }
 
 nav a:last-child {
@@ -86,6 +87,7 @@ nav a:last-child {
 nav a:last-child:hover {
   background-color: rgba(101, 136, 100, 0.8);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .title-card {
@@ -113,6 +115,16 @@ nav a:last-child:hover {
 .text-content p {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.more-details-about-product {
+  text-decoration: underline;
+  color: var(--another-dark-dark-green);
+}
+
+.more-details-about-product:hover {
+  color: rgba(101, 136, 100, 0.8);
+  cursor: pointer; 
 }
 
 .image-content {
@@ -169,6 +181,25 @@ nav a:last-child:hover {
 .predict-button:hover {
   background-color: rgba(101, 136, 100, 0.8);
 }
+
+.fetch-line {
+  color: var(--another-dark-green);
+  font-size: 1.5rem;
+}
+
+.display-big-temp {
+  color: var(--another-dark-green);
+  font-size: 4.23rem;
+}
+
+.display-big-temp:hover{
+  color: var(--another-dark-dark-green);
+}
+
+.display-props, .display-time-text {
+  color: var(--another-dark-dark-green);
+}
+
 
 .day-name {
   font-size: 1.11rem;

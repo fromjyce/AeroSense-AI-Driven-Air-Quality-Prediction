@@ -11,7 +11,7 @@ export default function WeatherForecast() {
         <div className="flex justify-between p-4 border-b h-[35%] bg-yellow-300">
           <CurrentWeather />
         </div>
-        <div className="grid grid-cols gap-4 p-4 items-center flex-grow bg-yellow-300">
+        <div className="grid grid-cols gap-4 p-4 items-center flex-grow">
           <WidgetContainer />
         </div>
       </div>

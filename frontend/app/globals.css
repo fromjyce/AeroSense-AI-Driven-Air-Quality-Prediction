@@ -9,8 +9,10 @@
   --sage: #B7B78A;
   --green: #658864;
   --another-green: #408955;
+  --an-another-green: #638763;
   --dark-green: #3A473A;
   --another-dark-green: #073414;
+  --another-dark-dark-green: #2D5F3B;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -166,6 +168,24 @@ nav a:last-child:hover {
 
 .predict-button:hover {
   background-color: rgba(101, 136, 100, 0.8);
+}
+
+.day-name {
+  font-size: 1.11rem;
+}
+
+.date-num {
+  color: var(--another-dark-dark-green);
+}
+
+.max-temp {
+  font-size: 0.99rem;
+  color: var(--dark-green);
+}
+
+.min-temp {
+  font-size: 0.92rem;
+  color: var(--an-another-green);
 }
 
 .outer-container {

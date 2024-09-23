@@ -13,15 +13,18 @@ export default function Navbar() {
         />
         <h1 className="text-3xl font-bold poppins dela_gothic_one">AeroSense</h1>
       </div>
-      <nav className="flex space-x-6">
+      <nav className="flex space-x-4">
         <Link href="#about" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
           About
         </Link>
-        <Link href="#predict" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
-          Predict
+        <Link href="#about-team" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
+          About Team
         </Link>
-        <Link href="#simulate" className="px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
+        <Link href="#simulate" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
           Simulate
+        </Link>
+        <Link href="#predict" className="px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
+          Predict
         </Link>
       </nav>
     </header>

@@ -2,7 +2,7 @@ import WeatherWidget from "./WeatherWidget";
 
 export default function WidgetContainer() {
   return (
-    <div className="flex flex-wrap justify-between items-start gap-1">
+    <div className="flex flex-wrap justify-between items-start gap-4">
       <WeatherWidget date="2024-09-12" maxTemp={25} minTemp={15} />
       <WeatherWidget date="2024-09-13" maxTemp={27} minTemp={17} />
       <WeatherWidget date="2024-09-14" maxTemp={30} minTemp={20} />

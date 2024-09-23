@@ -6,10 +6,10 @@ export default function WeatherWidget({ date, maxTemp, minTemp }) {
 
   return (
     <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg w-32 h-40"> 
-      <p className="text-sm">{day}</p>
-      <p className="text-3xl font-bold">{dateNum}</p>
-      <p className="text-sm">
-        {maxTemp}°<sup>C</sup> / {minTemp}°<sup>C</sup>
+      <p className="day-name questrial">{day}</p>
+      <p className="text-7xl font-bold bebas_neue date-num">{dateNum}</p>
+      <p className="questrial">
+        <span className="max-temp">{maxTemp}°</span> / <span className="min-temp">{minTemp}°</span>
       </p>
     </div>
   );

@@ -31,6 +31,9 @@ body {
   }
 }
 
+.bebas_neue {
+  font-family: var(--font-bebas_neue);
+}
 
 .questrial {
   font-family: var(--font-questrial);

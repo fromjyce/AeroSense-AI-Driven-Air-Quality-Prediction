@@ -181,6 +181,7 @@ nav a:last-child:hover {
 .max-temp {
   font-size: 0.99rem;
   color: var(--dark-green);
+  font-weight: 600;
 }
 
 .min-temp {

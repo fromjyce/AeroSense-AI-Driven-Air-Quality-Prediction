@@ -1,5 +1,5 @@
 import PredictCard from "./PredictCard";
-import CurrentWeather from "./CurrentWeather";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Dashboard() {
 
@@ -10,7 +10,7 @@ export default function Dashboard() {
       </div>
 
       <div className="second-card w-[68%] p-4 shadow-lg flex flex-col items-start justify-center">
-       <CurrentWeather/>
+       <WeatherForecast/>
       </div>
     </div>
   );

@@ -205,6 +205,10 @@ nav a:last-child:hover {
   color: var(--another-dark-dark-green);
 }
 
+.spacer {
+  width: 83px;
+}
+
 .reload-icon {
   color: var(--another-dark-green);
 }

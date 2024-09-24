@@ -324,6 +324,20 @@ nav a:last-child:hover {
   height: 10px;
 }
 
+.city-name {
+  font-size: 1.1rem;
+  color: var(--another-dark-green);
+}
+
+.regional-name{
+  color: var(--dark-green);
+}
+
+.city-icon {
+  width: 65%;
+  height: 65%;
+}
+
 .hover-link:hover {
   text-decoration: underline;
 }

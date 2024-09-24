@@ -5,11 +5,12 @@ import WeatherWidget from "./WeatherWidget";
 
 export default function WidgetContainer() {
   const [weatherData, setWeatherData] = useState([]);
-  
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
+
   useEffect(() => {
-    const fetchWeatherData = async () => {
+    const fetchWeatherData = async (latitude, longitude) => {
       try {
-        const DAYS_WEATHER_URL = "https://api.open-meteo.com/v1/forecast?latitude=26.9000&longitude=75.8000&daily=temperature_2m_max,temperature_2m_min&timezone=auto&past_days=3&forecast_days=5";
+        const DAYS_WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto&past_days=3&forecast_days=5`;
         const response = await fetch(DAYS_WEATHER_URL);
         const data = await response.json();
         const currentDate = new Date().toISOString().split('T')[0];
@@ -27,8 +28,20 @@ export default function WidgetContainer() {
         console.error("Error fetching weather data:", error);
       }
     };
-
-    fetchWeatherData();
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setLocation({ latitude, longitude });
+          fetchWeatherData(latitude, longitude);
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }, []);
 
   return (

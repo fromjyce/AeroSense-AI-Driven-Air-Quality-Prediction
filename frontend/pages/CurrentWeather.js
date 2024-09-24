@@ -99,8 +99,10 @@ export default function CurrentWeather() {
         <p>Precipitation: {weatherData?.precipitation} mm</p>
         <p>Wind Speed: {weatherData?.wind_speed_10m} km/h</p>
       </div>
+
+      <div className="spacer" />
       
-      <div className="flex flex-row flex-shrink-0 text-right imd-date-box">
+      <div className="flex flex-row flex-shrink-0 text-right imd-date-box ml-16">
         <div className="font-bold flex flex-col">
           <p className="display-time-text josefin_sans">{formattedDate}</p>
           <p className="display-time-text josefin_sans">

@@ -17,9 +17,6 @@ export default function Navbar() {
         <Link href="#about" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
           About
         </Link>
-        <Link href="#about-team" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
-          About Zoeo
-        </Link>
         <Link href="#simulate" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
           Simulate
         </Link>

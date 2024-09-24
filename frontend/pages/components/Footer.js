@@ -1,5 +1,5 @@
-import Simulator from "./Simulator";
-import CitiesAQIWidgetContainer from "./CitiesAQIWidgetContainer";
+import Simulator from "./elements/Simulator";
+import CitiesAQIWidgetContainer from "./elements/CitiesAQIWidgetContainer";
 
 export default function Footer() {
   return (

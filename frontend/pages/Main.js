@@ -1,7 +1,7 @@
-import About from "@/pages/About";
-import Dashboard from "@/pages/Dashboard";
-import PastAQI from "@/pages/PastAQI";
-import Footer from "@/pages/Footer";
+import About from "@/pages/components/About";
+import Dashboard from "@/pages/components/Dashboard";
+import PastAQI from "@/pages/components/PastAQI";
+import Footer from "@/pages/components/Footer";
 
 export default function Main() {
   return (

@@ -1,5 +1,5 @@
-import PredictCard from "./PredictCard";
-import WeatherForecast from "./WeatherForecast";
+import PredictCard from "./elements/PredictCard";
+import WeatherForecast from "./elements/WeatherForecast";
 
 export default function Dashboard() {
 

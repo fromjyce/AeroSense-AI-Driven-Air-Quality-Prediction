@@ -47,7 +47,7 @@ export default function IndiaAQIDisplay() {
   return (
     <div className="flex justify-between items-center bg-white shadow-lg rounded-lg p-4">
       <div className="flex flex-row gap-10">
-        <div className="flex flex-col ml-4 items-center aqi-india-number">
+        <div className="flex flex-col ml-4 mt-2 items-center aqi-india-number">
           <h2 className="text-7xl font-bold bebas_neue" style={{ color: aqiInfo.color }}>
             {aqiData.aqi !== null ? aqiData.aqi : <span className="josefin_sans loading-text">Loading...</span>}
           </h2>

@@ -256,10 +256,11 @@ nav a:last-child:hover {
 
 .current-date {
   font-size: 1.2rem;
+  color: var(--another-dark-dark-green);
 }
 
-.text-center {
-  text-align: center;
+.current-concentration {
+  color: var(--another-dark-green);
 }
 
 .footer-section {

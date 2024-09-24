@@ -8,7 +8,7 @@ export default function CitiesAQIWidgetContainer() {
         <h3 className="text-3xl font-bold mb-4 oswald_card_title">Metro Cities - Air Quality Index</h3>
         <IndiaAQIDisplay />
       </div>
-      <div className="second-half flex-grow">
+      <div className="second-half flex-grow mt-4">
         <MetroAQIWidgetContainer />
       </div>
     </div>

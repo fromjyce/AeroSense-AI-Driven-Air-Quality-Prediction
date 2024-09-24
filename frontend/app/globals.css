@@ -297,6 +297,27 @@ nav a:last-child:hover {
   bottom: -27px;
 }
 
+.first-half {
+  height: 29%;
+}
+
+.second-half {
+  height: 71%;
+}
+
+.dept-cpcb-icon {
+  width: 89px;
+  height: 105px;
+}
+
+.concentration-lists {
+  font-size: 0.98rem;
+}
+
+.loading-text {
+  font-size: 0.9rem;
+}
+
 .update-footer-section {
   width: 100%;
   background-color: var(--another-dark-green);

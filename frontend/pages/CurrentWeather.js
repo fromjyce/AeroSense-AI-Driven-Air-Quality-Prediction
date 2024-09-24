@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FiRefreshCcw } from "react-icons/fi";
+import { IoReloadCircle } from "react-icons/io5";
+import IconButton from '@mui/material/IconButton';
 
 export default function CurrentWeather() {
   const [weatherData, setWeatherData] = useState(null);
@@ -49,6 +50,14 @@ export default function CurrentWeather() {
     }
   }, [latitude, longitude]);
 
+  const handleReload = () => {
+    if (latitude && longitude) {
+      fetchWeatherData(latitude, longitude);
+    } else {
+      getLocation();
+    }
+  };
+
   if (loading) {
     return <p className="josefin_sans fetch-line font-bold">Fetching...</p>;
   }
@@ -61,13 +70,23 @@ export default function CurrentWeather() {
   const imageUrl = isDay ? "/day.png" : "/night.png";
 
   const date = new Date(weatherData?.time);
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = date.toLocaleDateString(undefined, options);
-  const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const options = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  const formattedDate = date.toLocaleDateString(undefined, options).replace(/(\w+day)/, '$1,');
+
+  const formattedTime = date.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  }).replace('am', 'AM').replace('pm', 'PM');
 
   return (
     <div className="flex items-center justify-between p-4 space-x-10">
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 weather-image-container">
         <img src={imageUrl} alt={isDay ? "Morning" : "Night"} className="w-24 h-24" />
       </div>
 
@@ -84,8 +103,17 @@ export default function CurrentWeather() {
       <div className="flex flex-row flex-shrink-0 text-right imd-date-box">
         <div className="font-bold flex flex-col">
           <p className="display-time-text josefin_sans">{formattedDate}</p>
-          <p className="display-time-text josefin_sans">{formattedTime}</p>
-          <button className="bg-blue ml-auto">Hi</button>
+          <p className="display-time-text josefin_sans">
+            Last Updated: 
+            <span className="ml-1">
+              {formattedTime}
+            </span>
+          </p>
+          <div className="ml-auto">
+            <IconButton aria-label="reload" className="icon-button" onClick={handleReload}>
+              <IoReloadCircle className="reload-icon" />
+            </IconButton>
+          </div>
         </div>
         <div className="flex-shrink-0">
           <img src="/dept_1.png" alt="Weather Icon" className="w-24 h-24 dept-display-1" />

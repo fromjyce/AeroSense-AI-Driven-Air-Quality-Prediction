@@ -1,6 +1,7 @@
 import "./globals.css";
 import {Questrial, Poppins, Oswald, Josefin_Sans, Dela_Gothic_One, Bebas_Neue} from 'next/font/google';
 import Navbar from "@/pages/Navbar";
+import UpdateFooter from "@/pages/UpdateFooter";
 
 const bebas_neue_init = Bebas_Neue({
   subsets: ['latin'],
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
       <body className={`${bebas_neue_init.variable} ${questrial_init.variable} ${poppins_init.variable} ${oswald_init.variable} ${josefin_init.variable} ${dela_gothic_init.variable}`}>
       <Navbar /> 
         {children}
+      <UpdateFooter />
       </body>
     </html>
   );

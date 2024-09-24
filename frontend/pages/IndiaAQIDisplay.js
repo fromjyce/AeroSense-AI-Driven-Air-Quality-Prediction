@@ -55,7 +55,11 @@ export default function IndiaAQIDisplay() {
             {aqiData.aqi !== null ? aqiInfo.category : <span className="josefin_sans loading-text">Loading...</span>}
           </p>
         </div>
-        <div className="flex flex-col justify-center mt-10 concentration-lists">
+        <div className="flex flex-col justify-center concentration-lists">
+          <div className='flex flex-row items-center gap-2'>
+          <img src="/india.png" alt="Air Quality Icon" className="india-icon"/>
+          <p className='font-bold poppins text-lg india-name'>India</p>
+          </div>
           <p className="josefin_sans">PM2.5: {aqiData.pm25 !== null ? `${aqiData.pm25} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
           <p className="josefin_sans">PM10: {aqiData.pm10 !== null ? `${aqiData.pm10} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
           <p className="josefin_sans">CO: {aqiData.co !== null ? `${aqiData.co} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>

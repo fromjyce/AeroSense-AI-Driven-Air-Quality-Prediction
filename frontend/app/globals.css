@@ -314,6 +314,15 @@ nav a:last-child:hover {
   font-size: 0.98rem;
 }
 
+.india-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.india-name {
+  color: var(--another-green);
+}
+
 .loading-text {
   font-size: 0.9rem;
 }

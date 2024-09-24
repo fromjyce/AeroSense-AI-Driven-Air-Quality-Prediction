@@ -187,6 +187,11 @@ nav a:last-child:hover {
   font-size: 1.5rem;
 }
 
+.weather-image-container {
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .display-big-temp {
   color: var(--another-dark-green);
   font-size: 4.23rem;
@@ -200,6 +205,9 @@ nav a:last-child:hover {
   color: var(--another-dark-dark-green);
 }
 
+.reload-icon {
+  color: var(--another-dark-green);
+}
 
 .day-name {
   font-size: 1.11rem;

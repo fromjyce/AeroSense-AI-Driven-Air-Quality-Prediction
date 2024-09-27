@@ -192,9 +192,19 @@ nav a:last-child:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.weather-image {
+  height: 90px;
+  width: 90px;
+}
+
+.temp-widget {
+  width: 128px;
+  height: 180px;
+}
+
 .display-big-temp {
   color: var(--another-dark-green);
-  font-size: 4.23rem;
+  font-size: 3.49rem;
 }
 
 .display-big-temp:hover{
@@ -203,10 +213,7 @@ nav a:last-child:hover {
 
 .display-props, .display-time-text {
   color: var(--another-dark-dark-green);
-}
-
-.spacer {
-  width: 110px;
+  font-size: 0.9rem;
 }
 
 .reload-icon {
@@ -286,20 +293,20 @@ nav a:last-child:hover {
 }
 
 .first-card-footer {
-  width: 65%;
+  width: 55%;
 }
 
 .second-card-footer {
-  width: 35%;
+  width: 45%;
 }
 
 .iframe-container {
   position: relative;
-  width: 685px;
-  height: 300px;
+  width: 635px;
+  height: 400px;
   padding-bottom: 56.25%;
   overflow: hidden;
-  margin-top: -20px;
+  margin-top: -67px;
   border-radius: 0.5rem;
 }
 

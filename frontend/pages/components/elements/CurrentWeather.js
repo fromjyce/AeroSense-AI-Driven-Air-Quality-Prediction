@@ -12,7 +12,7 @@ export default function CurrentWeather() {
   const [locationError, setLocationError] = useState(null);
 
   const fetchWeatherData = async (lat, lon) => {
-    const FIFTEEN_MIN_UPDATE_URL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,precipitation,wind_speed_10m&timezone=auto&past_days=3&forecast_days=3`;
+    const FIFTEEN_MIN_UPDATE_URL = `${process.env.NEXT_PUBLIC_WEATHER_FORECAST_API_URL}?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,precipitation,wind_speed_10m&timezone=auto&past_days=3&forecast_days=3`;
     setLoading(true);
     try {
       const response = await fetch(FIFTEEN_MIN_UPDATE_URL);

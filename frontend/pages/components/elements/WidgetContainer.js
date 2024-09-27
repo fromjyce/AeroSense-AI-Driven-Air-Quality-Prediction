@@ -10,7 +10,7 @@ export default function WidgetContainer() {
   useEffect(() => {
     const fetchWeatherData = async (latitude, longitude) => {
       try {
-        const DAYS_WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto&past_days=3&forecast_days=5`;
+        const DAYS_WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=6`;
         const response = await fetch(DAYS_WEATHER_URL);
         const data = await response.json();
         const currentDate = new Date().toISOString().split('T')[0];
@@ -45,7 +45,7 @@ export default function WidgetContainer() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-between items-start gap-4 p-5">
+    <div className="flex flex-wrap justify-between items-center gap-2 p-1">
       {weatherData.map((weather) => (
         <WeatherWidget
           key={weather.date}

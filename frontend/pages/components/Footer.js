@@ -1,5 +1,5 @@
 import Simulator from "./elements/Simulator";
-import CitiesAQIWidgetContainer from "./elements/CitiesAQIWidgetContainer";
+import WeatherForecast from "./elements/WeatherForecast";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
       </div>
 
       <div className="second-card-footer p-4 shadow-lg flex flex-col items-start justify-center">
-      <CitiesAQIWidgetContainer />
+      <WeatherForecast/>
       </div>
     </div>
   );

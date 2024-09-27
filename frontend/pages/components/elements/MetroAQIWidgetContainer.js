@@ -36,7 +36,7 @@ export default function MetroAQIWidgetContainer() {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-2 gap-3 mt-4">
+    <div className="grid grid-cols-6 grid-rows-2 gap-x-2 gap-y-3">
       {metroCitiesData.map((city, index) => (
         <CityAQIWidget 
           key={index} 

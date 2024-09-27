@@ -14,8 +14,7 @@ export default function IndiaAQIDisplay() {
 
   const fetchAqiData = async () => {
     try {
-      const INDIA_AQI_URL = 'https://api.waqi.info/feed/india/?token=4ada0332a03480800905a3a1d48e7ca4a16d08cb';
-      const response = await fetch(INDIA_AQI_URL);
+      const response = await fetch(process.env.NEXT_PUBLIC_INDIA_AQI_URL);
       const data = await response.json();
       if (data.status === "ok") {
         const { aqi, iaqi } = data.data;

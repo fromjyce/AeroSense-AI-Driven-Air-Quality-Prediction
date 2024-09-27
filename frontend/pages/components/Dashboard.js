@@ -1,5 +1,5 @@
 import PredictCard from "./elements/PredictCard";
-import WeatherForecast from "./elements/WeatherForecast";
+import CitiesAQIWidgetContainer from "./elements/CitiesAQIWidgetContainer";
 
 export default function Dashboard() {
 
@@ -10,7 +10,8 @@ export default function Dashboard() {
       </div>
 
       <div className="second-card w-[68%] p-4 shadow-lg flex flex-col items-start justify-center">
-       <WeatherForecast/>
+      <h3 className="text-3xl font-bold mb-4 oswald_card_title">Metro Cities - Air Quality Index</h3>
+       <CitiesAQIWidgetContainer />
       </div>
     </div>
   );

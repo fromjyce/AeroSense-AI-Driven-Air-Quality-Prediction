@@ -5,7 +5,7 @@ export default function WeatherWidget({ date, maxTemp, minTemp }) {
   const dateNum = weatherDate.getDate();
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg w-32 h-40"> 
+    <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg temp-widget"> 
       <p className="day-name questrial">{day}</p>
       <p className="text-7xl font-bold bebas_neue date-num">{dateNum}</p>
       <p className="questrial">

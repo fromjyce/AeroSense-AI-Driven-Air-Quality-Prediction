@@ -6,14 +6,14 @@ import CityAQIWidget from '../widgets/CityAQIWidget';
 export default function MetroAQIWidgetContainer() {
   const [metroCitiesData, setMetroCitiesData] = useState([]);
   const cityDetails = [
-    { name: "New Delhi", regionalName: "नई दिल्ली", imagePath: "/delhi.svg" },
-    { name: "Ahmedabad", regionalName: "અમદાવાદ", imagePath: "/ahmedabad.svg" },
-    { name: "Bengaluru", regionalName: "ಬೆಂಗಳೂರು", imagePath: "/bengaluru.jpg" },
-    { name: "Mumbai", regionalName: "मुंबई", imagePath: "/mumbai.png" },
-    { name: "Pune", regionalName: "पुणे", imagePath: "/pune.webp" },
-    { name: "Chennai", regionalName: "சென்னை", imagePath: "/chennai.webp" },
-    { name: "Hyderabad", regionalName: "హైదరాబాద్", imagePath: "/hyderabad.webp" },
-    { name: "Kolkata", regionalName: "কলকাতা", imagePath: "/kolkata.jpg" },
+    { name: "New Delhi", regionalName: "नई दिल्ली", imagePath: "/cities_icons/delhi.svg" },
+    { name: "Ahmedabad", regionalName: "અમદાવાદ", imagePath: "/cities_icons/ahmedabad.svg" },
+    { name: "Bengaluru", regionalName: "ಬೆಂಗಳೂರು", imagePath: "/cities_icons/bengaluru.jpg" },
+    { name: "Mumbai", regionalName: "मुंबई", imagePath: "/cities_icons/mumbai.png" },
+    { name: "Pune", regionalName: "पुणे", imagePath: "/cities_icons/pune.webp" },
+    { name: "Chennai", regionalName: "சென்னை", imagePath: "/cities_icons/chennai.webp" },
+    { name: "Hyderabad", regionalName: "హైదరాబాద్", imagePath: "/cities_icons/hyderabad.webp" },
+    { name: "Kolkata", regionalName: "কলকাতা", imagePath: "/cities_icons/kolkata.jpg" },
   ];
   const fetchAQIData = async () => {
     try {

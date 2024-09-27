@@ -100,7 +100,7 @@ export default function CurrentWeather() {
         <p>Wind Speed: {weatherData?.wind_speed_10m} km/h</p>
       </div>
       
-      <div className="flex flex-row flex-shrink-0 text-right imd-date-box p-4 ml-16">
+      <div className="flex flex-row flex-shrink-0 text-right imd-date-box p-2">
         <div className="font-bold flex flex-col">
           <p className="display-time-text josefin_sans">{formattedDate}</p>
           <p className="display-time-text josefin_sans">
@@ -114,6 +114,9 @@ export default function CurrentWeather() {
               <IoReloadCircle className="reload-icon" />
             </IconButton>
           </div>
+        </div>
+        <div className="flex-shrink-0">
+          <img src="/dept_1.png" alt="Weather Icon" className="w-24 h-24 dept-display-1" />
         </div>
       </div>
     </div>

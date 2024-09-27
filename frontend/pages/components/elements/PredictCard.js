@@ -5,8 +5,8 @@ import Papa from 'papaparse';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const cityDataUrl = '/city_data.csv';
-const stationDataUrl = '/stations_data.csv';
+const cityDataUrl = '/dataset/city_data.csv';
+const stationDataUrl = '/dataset/stations_data.csv';
 
 export default function PredictCard() {
   const [predictOption, setPredictOption] = useState('city');

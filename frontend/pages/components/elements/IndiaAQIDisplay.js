@@ -41,7 +41,7 @@ export default function IndiaAQIDisplay() {
   const getAqiInfo = (aqi) => {
     if (aqi <= 50) return { category: "Good", color: "#00b050", textColor: "#32B000" };
     if (aqi <= 100) return { category: "Satisfactory", color: "#92d050", textColor: "#4FD171" };
-    if (aqi <= 200) return { category: "Moderate", color: "#ffff00", textColor: "#FFFF55" };
+    if (aqi <= 200) return { category: "Moderate", color: "#FFE000", textColor: "#FFC200" };
     if (aqi <= 300) return { category: "Poor", color: "#ffc000", textColor: "#FFA000" };
     if (aqi <= 400) return { category: "Very Poor", color: "#f60000", textColor: "#F52B00" };
     return { category: "Severe", color: "#c00000", textColor: "#BF2100" };

@@ -116,7 +116,7 @@ export default function CurrentWeather() {
           </div>
         </div>
         <div className="flex-shrink-0">
-          <img src="/dept_1.png" alt="Weather Icon" className="w-24 h-24 dept-display-1" />
+          <img src="/dept_1.png" alt="Weather Icon" className="dept-display-1" />
         </div>
       </div>
     </div>

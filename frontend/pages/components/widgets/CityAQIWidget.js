@@ -13,7 +13,7 @@ export default function CityAQIWidget({ cityName, regionalName, aqiValue, imageP
   const aqiColor = getAQIColor(aqiValue);
 
   return (
-    <div className="aqi-widget bg-white shadow-lg rounded-lg p-4 flex flex-col items-center city-aqi-widget">
+    <div className="aqi-widget bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
       <h4 className="text-xl font-bold city-name poppins">{cityName}</h4>
       <p className="text-md regional-name poppins">{regionalName}</p>
       <img src={imagePath} alt={`${cityName} image`} className="object-cover my-2 city-icon" />

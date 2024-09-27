@@ -14,10 +14,14 @@ export default function MetroAQIWidgetContainer() {
     { name: "Chennai", regionalName: "சென்னை", imagePath: "/cities_icons/chennai.webp" },
     { name: "Hyderabad", regionalName: "హైదరాబాద్", imagePath: "/cities_icons/hyderabad.webp" },
     { name: "Kolkata", regionalName: "কলকাতা", imagePath: "/cities_icons/kolkata.jpg" },
+    { name: "Jaipur", regionalName: "जयपुर", imagePath: "/cities_icons/jaipur.jpg" },
+    { name: "Lucknow", regionalName: "लखनऊ", imagePath: "/cities_icons/lucknow.jpg" },
+    { name: "Kanpur", regionalName: "कानपुर", imagePath: "/cities_icons/kanpur.png" },
+    { name: "Kochi", regionalName: "കൊച്ചി", imagePath: "/cities_icons/kochi.webp" },
   ];
   const fetchAQIData = async () => {
     try {
-      const CITIES_AQI_URL = "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.61,23.0225,12.9789,19.0761,18.5203,13.0825,17.3617,22.5675&longitude=77.23,72.5714,77.5917,72.8775,73.8567,80.275,78.4747,88.37&current=us_aqi&timezone=auto,auto,auto,auto,auto,auto,auto,auto";
+      const CITIES_AQI_URL = "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.61,23.0225,12.9789,19.0761,18.5203,13.0825,17.3617,22.5675,26.9000,26.8500,26.4499,9.9312&longitude=77.23,72.5714,77.5917,72.8775,73.8567,80.275,78.4747,88.37,75.8000,80.9500,80.3319,76.2670&current=us_aqi&timezone=auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto";
       const response = await fetch(CITIES_AQI_URL);
       const data = await response.json();
       const updatedCityData = cityDetails.map((city, index) => ({

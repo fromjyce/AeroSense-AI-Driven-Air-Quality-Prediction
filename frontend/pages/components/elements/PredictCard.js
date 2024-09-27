@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation'
 import Papa from 'papaparse';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -22,6 +23,7 @@ export default function PredictCard() {
   const [endTime, setEndTime] = useState('00:00');
   const [isWithRange, setIsWithRange] = useState(false);
   const today = new Date();
+  const router = useRouter();
 
   useEffect(() => {
     Papa.parse(cityDataUrl, {
@@ -87,18 +89,6 @@ const handleEndTimeChange = (e) => {
   }
 };
 
-  const isValidDate = (date) => {
-    const dateFormat = /^\d{4}-\d{2}-\d{2}$/;
-    const timeFormat = /^\d{2}:\d{2}:\d{2}$/;
-
-    if (!date) return false;
-
-    const dateString = date.toISOString().split('T')[0];
-    const timeString = date.toTimeString().split(' ')[0];
-
-    return dateFormat.test(dateString) && timeFormat.test(timeString);
-  };
-
   const handleStartDateChange = (date) => {
     if (date) {
         setSelectedDate(date);
@@ -144,29 +134,30 @@ const handleEndTimeChange = (e) => {
     }
 
     const formattedDate = selectedDate.toLocaleDateString('sv-SE');
+    let payload = {}
     
     if (predictOption === 'city') {
         const cityName = selectedCity.split(',')[0];
         if (!isWithRange) {
             if (selectOption === 'date') {
-                console.log(1, cityName, formattedDate);
+                payload = { number: 1, city: cityName, date: formattedDate };
             } else if (selectOption === 'hourly') {
               const todayFormatted = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
-              console.log(2, cityName, todayFormatted);
+              payload = { number: 2, city: cityName, datetime: todayFormatted };
             } else if (selectOption === 'datetime') {
               const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
-              console.log(3, cityName, selectedDateTime);
+              payload = { number: 3, city: cityName, datetime: selectedDateTime };
             }
         } else {
             if (selectOption === 'date') {
-                console.log(4, cityName, formattedDate, endDate.toLocaleDateString('sv-SE'));
+              payload = { number: 4, city: cityName, startDate: formattedDate, endDate: endDate.toLocaleDateString('sv-SE') };
             } else if (selectOption === 'hourly') {
                 const selectedStarthour = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
-                console.log(5, cityName, selectedStarthour, `${today.toISOString().split('T')[0]} ${endTime}`);
+                payload = { number: 5, city: cityName, startHour: selectedStarthour, endHour: `${today.toISOString().split('T')[0]} ${endTime}` };
             } else if (selectOption === 'datetime') {
               const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
               const endDateTime = endDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
-              console.log(6, cityName, selectedDateTime, endDateTime);          
+              payload = { number: 6, city: cityName, startDateTime: selectedDateTime, endDateTime: endDateTime };         
             }
         }
     }
@@ -179,27 +170,50 @@ const handleEndTimeChange = (e) => {
         }
         if (!isWithRange) {
             if (selectOption === 'date') {
-                console.log(7, station.id, formattedDate);
+              payload = { number: 7, stationId: station.id, date: formattedDate };
             } else if (selectOption === 'hourly') {
               const todayFormatted = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
-                console.log(8, station.id, todayFormatted);
+              payload = { number: 8, stationId: station.id, datetime: todayFormatted };
             } else if (selectOption === 'datetime') {
               const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
-                console.log(9, station.id, selectedDateTime);
+              payload = { number: 9, stationId: station.id, datetime: selectedDateTime };
             }
         } else {
             if (selectOption === 'date') {
-                console.log(10, station.id, formattedDate, endDate.toISOString().split('T')[0]);
+                payload = { number: 10, stationId: station.id, startDate: formattedDate, endDate: endDate.toISOString().split('T')[0] };
             } else if (selectOption === 'hourly') {
               const selectedStarthour = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
-                console.log(11, station.id, selectedStarthour, `${today.toISOString().split('T')[0]} ${endTime}`);
+              payload = { number: 11, stationId: station.id, startHour: selectedStarthour, endHour: `${today.toISOString().split('T')[0]} ${endTime}` };
             } else if (selectOption === 'datetime') {
               const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
               const endDateTime = endDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
-                console.log(12, station.id, selectedDateTime, endDateTime);
+              payload = { number: 12, stationId: station.id, startDateTime: selectedDateTime, endDateTime: endDateTime };
             }
         }
     }
+
+    fetch(process.env.NEXT_PUBLIC_DJANGO_API_MAIN_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Success:', data);
+        const query = new URLSearchParams({ message: data.message }).toString();
+        router.push(`/results?${query}`);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
 };
 
   return (

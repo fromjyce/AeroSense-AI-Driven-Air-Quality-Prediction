@@ -16,8 +16,8 @@ export default function CityAQIWidget({ cityName, regionalName, aqiValue, imageP
     <div className="aqi-widget bg-white shadow-lg rounded-lg p-4 flex flex-col items-center">
       <h4 className="text-xl font-bold city-name poppins">{cityName}</h4>
       <p className="text-md regional-name poppins">{regionalName}</p>
-      <img src={imagePath} alt={`${cityName} image`} className="object-cover my-2 city-icon" />
-      <p className="text-lg bebas_neue city-aqi" style={{ color: aqiColor }}>
+      <img src={imagePath} alt={`${cityName} image`} className="object-cover city-icon" />
+      <p className="text-lg bebas_neue city-aqi mt-2" style={{ color: aqiColor }}>
         {aqiValue}
       </p>
     </div>

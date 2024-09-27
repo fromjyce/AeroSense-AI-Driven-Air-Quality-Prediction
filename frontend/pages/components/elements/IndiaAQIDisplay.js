@@ -61,7 +61,7 @@ export default function IndiaAQIDisplay() {
           </p>
         </div>
         <div className='flex flex-row items-center gap-2'>
-          <img src="/india.png" alt="Air Quality Icon" className="india-icon" />
+          <img src="/misc/india.png" alt="Air Quality Icon" className="india-icon" />
           <p className='font-bold poppins text-lg india-name'>India</p>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function IndiaAQIDisplay() {
       </div>
       <div className='flex flex-row items-center justify-center gap-4 mt-8'>
         <div className="flex flex-col items-center justify-center">
-          <img src="/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon" />
+          <img src="/misc/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon" />
         </div>
         <p className='josefin_sans cpcb-name'>Central Pollution Control Board, India</p>
       </div>

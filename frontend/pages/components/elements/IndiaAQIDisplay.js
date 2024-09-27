@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { IoReloadCircle } from "react-icons/io5";
+import IconButton from '@mui/material/IconButton';
 
 export default function IndiaAQIDisplay() {
   const [aqiData, setAqiData] = useState({
@@ -45,28 +47,39 @@ export default function IndiaAQIDisplay() {
   const aqiInfo = getAqiInfo(aqiData.aqi);
 
   return (
-    <div className="flex justify-between items-center bg-white shadow-lg rounded-lg p-4">
-      <div className="flex flex-row gap-10">
-        <div className="flex flex-col ml-4 mt-2 items-center aqi-india-number">
-          <h2 className="text-7xl font-bold bebas_neue" style={{ color: aqiInfo.color }}>
-            {aqiData.aqi !== null ? aqiData.aqi : <span className="josefin_sans loading-text">Loading...</span>}
-          </h2>
-          <p className="text-xl questrial" style={{ color: aqiInfo.textColor }}>
-            {aqiData.aqi !== null ? aqiInfo.category : <span className="josefin_sans loading-text">Loading...</span>}
-          </p>
-        </div>
-        <div className="flex flex-col justify-center concentration-lists">
-          <div className='flex flex-row items-center gap-2'>
-          <img src="/india.png" alt="Air Quality Icon" className="india-icon"/>
+    <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-4">
+      <div className='flex flex-row items-center justify-center gap-5'>
+      <div className="flex flex-col items-center aqi-india-number">
+        <h2 className="text-7xl font-bold bebas_neue" style={{ color: aqiInfo.color }}>
+          {aqiData.aqi !== null ? aqiData.aqi : <span className="josefin_sans loading-text">Loading...</span>}
+        </h2>
+        <p className="text-xl questrial" style={{ color: aqiInfo.textColor }}>
+          {aqiData.aqi !== null ? aqiInfo.category : <span className="josefin_sans loading-text">Loading...</span>}
+        </p>
+      </div>
+      <div className='flex flex-row items-center gap-2'>
+          <img src="/india.png" alt="Air Quality Icon" className="india-icon" />
           <p className='font-bold poppins text-lg india-name'>India</p>
-          </div>
-          <p className="josefin_sans">PM2.5: {aqiData.pm25 !== null ? `${aqiData.pm25} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
-          <p className="josefin_sans">PM10: {aqiData.pm10 !== null ? `${aqiData.pm10} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
-          <p className="josefin_sans">CO: {aqiData.co !== null ? `${aqiData.co} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
         </div>
       </div>
+
+      <div className="flex flex-row items-center gap-3 mt-8">
+        <div className='flex flex-col concentration-lists mr-9'>
+        <p className="josefin_sans">PM2.5: {aqiData.pm25 !== null ? `${aqiData.pm25} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+        <p className="josefin_sans">PM10: {aqiData.pm10 !== null ? `${aqiData.pm10} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+        <p className="josefin_sans">CO: {aqiData.co !== null ? `${aqiData.co} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+        </div>
+        <div>
+            <IconButton aria-label="reload" className="icon-button">
+              <IoReloadCircle className="reload-icon-aqi" />
+            </IconButton>
+          </div>
+      </div>
+      <div className='flex flex-row items-center justify-center gap-4 mt-8'>
       <div className="flex flex-col items-center justify-center">
-        <img src="/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon w-20 h-20" />
+        <img src="/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon" />
+      </div>
+      <p className='josefin_sans cpcb-name'>Central Pollution Control Board, India</p>
       </div>
     </div>
   );

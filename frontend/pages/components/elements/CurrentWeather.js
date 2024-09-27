@@ -85,9 +85,9 @@ export default function CurrentWeather() {
   }).replace('am', 'AM').replace('pm', 'PM');
 
   return (
-    <div className="flex items-center justify-between p-4 space-x-10">
+    <div className="flex items-center justify-between p-4 space-x-4">
       <div className="flex-shrink-0 weather-image-container">
-        <img src={imageUrl} alt={isDay ? "Morning" : "Night"} className="w-24 h-24" />
+        <img src={imageUrl} alt={isDay ? "Morning" : "Night"} className="weather-image" />
       </div>
 
       <div className="flex-grow text-center">
@@ -99,10 +99,8 @@ export default function CurrentWeather() {
         <p>Precipitation: {weatherData?.precipitation} mm</p>
         <p>Wind Speed: {weatherData?.wind_speed_10m} km/h</p>
       </div>
-
-      <div className="spacer" />
       
-      <div className="flex flex-row flex-shrink-0 text-right imd-date-box ml-16">
+      <div className="flex flex-row flex-shrink-0 text-right imd-date-box p-4 ml-16">
         <div className="font-bold flex flex-col">
           <p className="display-time-text josefin_sans">{formattedDate}</p>
           <p className="display-time-text josefin_sans">
@@ -116,9 +114,6 @@ export default function CurrentWeather() {
               <IoReloadCircle className="reload-icon" />
             </IconButton>
           </div>
-        </div>
-        <div className="flex-shrink-0">
-          <img src="/dept_1.png" alt="Weather Icon" className="w-24 h-24 dept-display-1" />
         </div>
       </div>
     </div>

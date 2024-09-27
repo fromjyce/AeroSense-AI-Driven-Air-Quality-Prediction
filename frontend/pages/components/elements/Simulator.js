@@ -14,7 +14,7 @@ export default function Simulator() {
               width="100%"
               height="300px"
               allowFullScreen={false}
-              src="https://lab.concord.org/embeddable.html#interactives/air-pollution/air-pollution-master.json"
+              src={process.env.NEXT_PUBLIC_AIR_POLLUTION_SIMULATOR_URL}
             ></iframe>
           </div>
         </div>

@@ -85,7 +85,7 @@ export default function CurrentWeather() {
   }).replace('am', 'AM').replace('pm', 'PM');
 
   return (
-    <div className="flex items-center justify-between p-4 space-x-4">
+    <div className="flex items-center justify-between p-3 space-x-4">
       <div className="flex-shrink-0 weather-image-container">
         <img src={imageUrl} alt={isDay ? "Morning" : "Night"} className="weather-image" />
       </div>

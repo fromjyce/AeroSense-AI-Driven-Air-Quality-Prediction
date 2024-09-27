@@ -10,7 +10,7 @@ export default function PastAQI() {
   useEffect(() => {
     const fetchAQIData = async (latitude, longitude) => {
       try {
-        const AQI_FORECAST = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&hourly=us_aqi,pm2_5&timezone=auto&past_days=3&forecast_days=5`;
+        const AQI_FORECAST = `${process.env.NEXT_PUBLIC_AQI_FORECAST_API_URL}?latitude=${latitude}&longitude=${longitude}&hourly=us_aqi,pm2_5&timezone=auto&past_days=3&forecast_days=5`;
         const response = await fetch(AQI_FORECAST);
         const data = await response.json();
         const hourlyData = data.hourly;
@@ -72,7 +72,7 @@ export default function PastAQI() {
             <CurrentAQIWidget 
               key={index}
               date={item.date}
-              aqi={item.aqi.toFixed(1)}
+              aqi={item.aqi.toFixed(0)}
               pm2Concentration={item.pm2Concentration.toFixed(1)}
             />
           ))}

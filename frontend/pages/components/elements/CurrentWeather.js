@@ -67,7 +67,7 @@ export default function CurrentWeather() {
   }
 
   const isDay = weatherData?.is_day === 1;
-  const imageUrl = isDay ? "/day.png" : "/night.png";
+  const imageUrl = isDay ? "/misc/day.png" : "/misc/night.png";
 
   const date = new Date(weatherData?.time);
   const options = { 
@@ -116,7 +116,7 @@ export default function CurrentWeather() {
           </div>
         </div>
         <div className="flex-shrink-0">
-          <img src="/dept_1.png" alt="Weather Icon" className="dept-display-1" />
+          <img src="/misc/dept_1.png" alt="Weather Icon" className="dept-display-1" />
         </div>
       </div>
     </div>

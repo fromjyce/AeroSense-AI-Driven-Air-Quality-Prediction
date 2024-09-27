@@ -12,28 +12,32 @@ export default function IndiaAQIDisplay() {
     co: null,
   });
 
-  useEffect(() => {
-    const fetchAqiData = async () => {
-      try {
-        const INDIA_AQI_URL = 'https://api.waqi.info/feed/india/?token=4ada0332a03480800905a3a1d48e7ca4a16d08cb';
-        const response = await fetch(INDIA_AQI_URL);
-        const data = await response.json();
-        if (data.status === "ok") {
-          const { aqi, iaqi } = data.data;
-          setAqiData({
-            aqi: aqi,
-            pm25: iaqi.pm25 ? iaqi.pm25.v : null,
-            pm10: iaqi.pm10 ? iaqi.pm10.v : null,
-            co: iaqi.co ? iaqi.co.v : null,
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching AQI data:", error);
+  const fetchAqiData = async () => {
+    try {
+      const INDIA_AQI_URL = 'https://api.waqi.info/feed/india/?token=4ada0332a03480800905a3a1d48e7ca4a16d08cb';
+      const response = await fetch(INDIA_AQI_URL);
+      const data = await response.json();
+      if (data.status === "ok") {
+        const { aqi, iaqi } = data.data;
+        setAqiData({
+          aqi: aqi,
+          pm25: iaqi.pm25 ? iaqi.pm25.v : null,
+          pm10: iaqi.pm10 ? iaqi.pm10.v : null,
+          co: iaqi.co ? iaqi.co.v : null,
+        });
       }
-    };
+    } catch (error) {
+      console.error("Error fetching AQI data:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchAqiData();
   }, []);
+
+  const handleReload = () => {
+    fetchAqiData();
+  };
 
   const getAqiInfo = (aqi) => {
     if (aqi <= 50) return { category: "Good", color: "#00b050", textColor: "#32B000" };
@@ -49,15 +53,15 @@ export default function IndiaAQIDisplay() {
   return (
     <div className="flex flex-col items-center bg-white shadow-lg rounded-lg p-4">
       <div className='flex flex-row items-center justify-center gap-5'>
-      <div className="flex flex-col items-center aqi-india-number">
-        <h2 className="text-7xl font-bold bebas_neue" style={{ color: aqiInfo.color }}>
-          {aqiData.aqi !== null ? aqiData.aqi : <span className="josefin_sans loading-text">Loading...</span>}
-        </h2>
-        <p className="text-xl questrial" style={{ color: aqiInfo.textColor }}>
-          {aqiData.aqi !== null ? aqiInfo.category : <span className="josefin_sans loading-text">Loading...</span>}
-        </p>
-      </div>
-      <div className='flex flex-row items-center gap-2'>
+        <div className="flex flex-col items-center aqi-india-number">
+          <h2 className="text-7xl font-bold bebas_neue" style={{ color: aqiInfo.color }}>
+            {aqiData.aqi !== null ? aqiData.aqi : <span className="josefin_sans loading-text">Loading...</span>}
+          </h2>
+          <p className="text-xl questrial" style={{ color: aqiInfo.textColor }}>
+            {aqiData.aqi !== null ? aqiInfo.category : <span className="josefin_sans loading-text">Loading...</span>}
+          </p>
+        </div>
+        <div className='flex flex-row items-center gap-2'>
           <img src="/india.png" alt="Air Quality Icon" className="india-icon" />
           <p className='font-bold poppins text-lg india-name'>India</p>
         </div>
@@ -65,21 +69,21 @@ export default function IndiaAQIDisplay() {
 
       <div className="flex flex-row items-center gap-3 mt-8">
         <div className='flex flex-col concentration-lists mr-9'>
-        <p className="josefin_sans">PM2.5: {aqiData.pm25 !== null ? `${aqiData.pm25} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
-        <p className="josefin_sans">PM10: {aqiData.pm10 !== null ? `${aqiData.pm10} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
-        <p className="josefin_sans">CO: {aqiData.co !== null ? `${aqiData.co} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+          <p className="josefin_sans">PM2.5: {aqiData.pm25 !== null ? `${aqiData.pm25} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+          <p className="josefin_sans">PM10: {aqiData.pm10 !== null ? `${aqiData.pm10} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
+          <p className="josefin_sans">CO: {aqiData.co !== null ? `${aqiData.co} µg/m³` : <span className="josefin_sans loading-text">Loading...</span>}</p>
         </div>
         <div>
-            <IconButton aria-label="reload" className="icon-button">
-              <IoReloadCircle className="reload-icon-aqi" />
-            </IconButton>
-          </div>
+          <IconButton aria-label="reload" className="icon-button" onClick={handleReload}>
+            <IoReloadCircle className="reload-icon-aqi" />
+          </IconButton>
+        </div>
       </div>
       <div className='flex flex-row items-center justify-center gap-4 mt-8'>
-      <div className="flex flex-col items-center justify-center">
-        <img src="/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon" />
-      </div>
-      <p className='josefin_sans cpcb-name'>Central Pollution Control Board, India</p>
+        <div className="flex flex-col items-center justify-center">
+          <img src="/dept_2.png" alt="Air Quality Icon" className="dept-cpcb-icon" />
+        </div>
+        <p className='josefin_sans cpcb-name'>Central Pollution Control Board, India</p>
       </div>
     </div>
   );

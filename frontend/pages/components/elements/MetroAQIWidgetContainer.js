@@ -21,7 +21,7 @@ export default function MetroAQIWidgetContainer() {
   ];
   const fetchAQIData = async () => {
     try {
-      const CITIES_AQI_URL = "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.61,23.0225,12.9789,19.0761,18.5203,13.0825,17.3617,22.5675,26.9000,26.8500,26.4499,9.9312&longitude=77.23,72.5714,77.5917,72.8775,73.8567,80.275,78.4747,88.37,75.8000,80.9500,80.3319,76.2670&current=us_aqi&timezone=auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto";
+      const CITIES_AQI_URL = `${process.env.NEXT_PUBLIC_AQI_API_URL}?latitude=28.61,23.0225,12.9789,19.0761,18.5203,13.0825,17.3617,22.5675,26.9000,26.8500,26.4499,9.9312&longitude=77.23,72.5714,77.5917,72.8775,73.8567,80.275,78.4747,88.37,75.8000,80.9500,80.3319,76.2670&current=us_aqi&timezone=auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto`;
       const response = await fetch(CITIES_AQI_URL);
       const data = await response.json();
       const updatedCityData = cityDetails.map((city, index) => ({

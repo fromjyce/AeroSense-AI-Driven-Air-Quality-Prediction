@@ -193,8 +193,8 @@ nav a:last-child:hover {
 }
 
 .weather-image {
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
 }
 
 .temp-widget {
@@ -204,7 +204,7 @@ nav a:last-child:hover {
 
 .display-big-temp {
   color: var(--another-dark-green);
-  font-size: 3.49rem;
+  font-size: 4.12rem;
 }
 
 .display-big-temp:hover{
@@ -213,11 +213,16 @@ nav a:last-child:hover {
 
 .display-props, .display-time-text {
   color: var(--another-dark-dark-green);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .reload-icon {
   color: var(--another-dark-green);
+}
+
+.dept-display-1{
+  width: 80px;
+  height: 80px;
 }
 
 .day-name {

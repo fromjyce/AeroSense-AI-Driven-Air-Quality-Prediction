@@ -78,8 +78,8 @@ const handleEndTimeChange = (e) => {
 
   if (selectedEndHour <= startHour) {
     alert('End hour must be after the start hour.');
-  } else if (diffHours > 15) {
-    alert('The difference between start hour and end hour should not exceed 15 hours.');
+  } else if (diffHours > 5) {
+    alert('The difference between start hour and end hour should not exceed 5 hours.');
   } else if (selectedEndHour <= currentHour) {
     alert('Please select an end hour in the future.');
   } else {
@@ -112,12 +112,12 @@ const handleEndTimeChange = (e) => {
     const diffInDays = (date - selectedDate) / (1000 * 60 * 60 * 24);
     const diffInHours = (date - selectedDate) / (1000 * 60 * 60);
 
-    if (selectOption === 'date' && diffInDays > 15) {
-      alert('The difference between start date and end date should not exceed 15 days.');
-    } else if (selectOption === 'hourly' && diffInHours > 15) {
-      alert('The difference between start hour and end hour should not exceed 15 hours.');
-    } else if (selectOption === 'datetime' && diffInDays > 10) {
-      alert('The difference between start date and end date should not exceed 10 days.');
+    if (selectOption === 'date' && diffInDays > 5) {
+      alert('The difference between start date and end date should not exceed 5 days.');
+    } else if (selectOption === 'hourly' && diffInHours > 5) {
+      alert('The difference between start hour and end hour should not exceed 5 hours.');
+    } else if (selectOption === 'datetime' && diffInDays > 5) {
+      alert('The difference between start date and end date should not exceed 5 days.');
     } else {
       setEndDate(date);
     }
@@ -153,8 +153,8 @@ const handleEndTimeChange = (e) => {
             } else if (selectOption === 'hourly') {
                 console.log(2, cityName, `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`);
             } else if (selectOption === 'datetime') {
-              const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
-              console.log(3, cityName, selectedDateTime.toISOString());
+              const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
+              console.log(3, cityName, selectedDateTime);
             }
         } else {
             if (selectOption === 'date') {
@@ -357,7 +357,7 @@ const handleEndTimeChange = (e) => {
                   <option
                     key={i}
                     value={String(i).padStart(2, '0')}
-                    disabled={i <= startHour || i - startHour > 15}
+                    disabled={i <= startHour || i - startHour > 5}
                   >
                     {String(i).padStart(2, '0')}
                   </option>

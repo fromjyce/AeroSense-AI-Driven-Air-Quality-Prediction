@@ -16,10 +16,10 @@ export default function PredictCard() {
   const [selectedCity, setSelectedCity] = useState('');
   const [availableCities, setAvailableCities] = useState([]);
   const [selectOption, setSelectOption] = useState('date');
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [endTime, setEndTime] = useState('');
+  const [endTime, setEndTime] = useState('00:00');
   const [isWithRange, setIsWithRange] = useState(false);
   const today = new Date();
 
@@ -78,8 +78,8 @@ const handleEndTimeChange = (e) => {
 
   if (selectedEndHour <= startHour) {
     alert('End hour must be after the start hour.');
-  } else if (diffHours > 5) {
-    alert('The difference between start hour and end hour should not exceed 5 hours.');
+  } else if (diffHours > 15) {
+    alert('The difference between start hour and end hour should not exceed 15 hours.');
   } else if (selectedEndHour <= currentHour) {
     alert('Please select an end hour in the future.');
   } else {
@@ -112,12 +112,12 @@ const handleEndTimeChange = (e) => {
     const diffInDays = (date - selectedDate) / (1000 * 60 * 60 * 24);
     const diffInHours = (date - selectedDate) / (1000 * 60 * 60);
 
-    if (selectOption === 'date' && diffInDays > 5) {
-      alert('The difference between start date and end date should not exceed 5 days.');
-    } else if (selectOption === 'hourly' && diffInHours > 5) {
-      alert('The difference between start hour and end hour should not exceed 5 hours.');
-    } else if (selectOption === 'datetime' && diffInDays > 5) {
-      alert('The difference between start date and end date should not exceed 5 days.');
+    if (selectOption === 'date' && diffInDays > 15) {
+      alert('The difference between start date and end date should not exceed 15 days.');
+    } else if (selectOption === 'hourly' && diffInHours > 15) {
+      alert('The difference between start hour and end hour should not exceed 15 hours.');
+    } else if (selectOption === 'datetime' && diffInDays > 10) {
+      alert('The difference between start date and end date should not exceed 10 days.');
     } else {
       setEndDate(date);
     }
@@ -128,10 +128,10 @@ const handleEndTimeChange = (e) => {
         alert("Please select a city.");
         return;
     }
-    if (!selectedDate) {
-        alert("Please select a date.");
-        return;
-    }
+    if (selectOption !== 'hourly' && !selectedDate) {
+      alert("Please select a date.");
+      return;
+  }
 
     if (selectOption === 'hourly' && !selectedTime) {
         alert("Please select a time.");
@@ -143,7 +143,7 @@ const handleEndTimeChange = (e) => {
         return;
     }
 
-    const formattedDate = selectedDate.toISOString().split('T')[0];
+    const formattedDate = selectedDate.toLocaleDateString('sv-SE');
     
     if (predictOption === 'city') {
         const cityName = selectedCity.split(',')[0];
@@ -151,20 +151,22 @@ const handleEndTimeChange = (e) => {
             if (selectOption === 'date') {
                 console.log(1, cityName, formattedDate);
             } else if (selectOption === 'hourly') {
-                console.log(2, cityName, `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`);
+              const todayFormatted = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
+                console.log(2, cityName, todayFormatted);
             } else if (selectOption === 'datetime') {
               const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
               console.log(3, cityName, selectedDateTime);
             }
         } else {
             if (selectOption === 'date') {
-                console.log(4, cityName, formattedDate, endDate.toISOString().split('T')[0]);
+                console.log(4, cityName, formattedDate, endDate.toLocaleDateString('sv-SE'));
             } else if (selectOption === 'hourly') {
-                console.log(5, cityName, `${formattedDate} ${selectedTime}`, `${endDate.toISOString().split('T')[0]} ${endTime}`);
+                const selectedStarthour = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')} ${selectedTime}`;
+                console.log(5, cityName, selectedStarthour, `${today.toISOString().split('T')[0]} ${endTime}`);
             } else if (selectOption === 'datetime') {
-                const selectedDateTime = new Date(`${formattedDate}T${selectedTime}`);
-                const endDateTime = new Date(`${endDate.toISOString().split('T')[0]}T${endTime}`);
-                console.log(6, cityName, selectedDateTime.toISOString(), endDateTime.toISOString());
+              const selectedDateTime = selectedDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
+              const endDateTime = endDate.toLocaleString('sv-SE', { timeZone: 'Asia/Kolkata' }).replace('T', ' ');
+              console.log(6, cityName, selectedDateTime, endDateTime);          
             }
         }
     }
@@ -357,7 +359,7 @@ const handleEndTimeChange = (e) => {
                   <option
                     key={i}
                     value={String(i).padStart(2, '0')}
-                    disabled={i <= startHour || i - startHour > 5}
+                    disabled={i <= startHour || i - startHour > 15}
                   >
                     {String(i).padStart(2, '0')}
                   </option>

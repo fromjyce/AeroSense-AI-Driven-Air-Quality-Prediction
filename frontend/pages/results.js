@@ -11,9 +11,7 @@ export default function Results() {
   const searchParams = useSearchParams();
   const message = searchParams.get('message');
   const markers = [
-    { lat: 28.61, lng: 77.238, title: 'Marker 1' },
-    { lat: 28.62, lng: 77.239, title: 'Marker 2' },
-    { lat: 28.63, lng: 77.240, title: 'Marker 3' },
+    { lat: 13.0843, lng: 80.2705, title: 'Chennai' },
   ];
 
   return (
@@ -26,7 +24,7 @@ export default function Results() {
             width={55}
             height={55}
           />
-          <h1 className="text-3xl font-bold poppins dela_gothic_one">AeroSense</h1>
+          <h1 className="text-3xl font-bold results-logo">AeroSense</h1>
         </div>
         <h1 className="text-3xl font-bold text-center predict-title">View your Predictions</h1>
       </div>
@@ -42,11 +40,11 @@ export default function Results() {
         <div className='p-5 ai-suggestion-container'>
           <AISuggestionsContainer /> 
         </div>
-        <div className='flex justify-center items-center p-5 button-container'>
+        <div className='flex flex-row justify-center items-center p-5 button-container'>
           <div className='text-center flex flex-row gap-3 justify-center items-center'>
-            <p className="mb-2 text-lg">Want to Predict Again?</p>
+            <p className="text-xl">Want to Predict Again?</p>
             <Link href="/">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 button-back transition text-lg">
                 Go Home
               </button>
             </Link>

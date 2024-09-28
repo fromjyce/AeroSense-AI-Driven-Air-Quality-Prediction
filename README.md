@@ -108,6 +108,3 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 Thank you for using our AQI Prediction and Forecasting Tool! We hope it empowers you to make informed decisions about air quality and helps drive positive change for a cleaner, healthier future.
 
----
-
-This `README.md` provides a professional and comprehensive overview of your project, making it clear and inviting for users and contributors alike.

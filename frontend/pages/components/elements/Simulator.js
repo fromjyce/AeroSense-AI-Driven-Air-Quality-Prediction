@@ -1,11 +1,10 @@
 export default function Simulator() {
     return (
       <>
-        <h3 className="text-3xl font-bold mb-2 oswald_card_title">Air Pollution Simulator</h3>
+        <h3 className="text-3xl font-bold mb-2 oswald_card_title">Air Quality Simulator</h3>
         <div className="flex flex-row">
           <div className="paragraph-content w-1/2">
-            <p className="text-lg josefin_sans">
-            The Air Pollution Simulator allows users to explore the complex relationship between weather, geography, and air quality by adjusting various environmental factors. Users can modify conditions such as the number of cars and power plants, both with and without pollution control devices, to see their impact on the Air Quality Index (AQI). This interactive tool provides a visual representation of air quality changes, helping users understand the significance of human activity on air pollution levels.            </p>
+            <p className="text-lg josefin_sans">Explore the intricate relationship between weather, geography, and air quality with our interactive simulator. Adjust variables such as the number of cars and power plants, both with and without pollution control devices, to see firsthand how human activity influences air quality. Utilize the sliders to set various conditions and observe their impact on the Air Quality Index (AQI), where a lower number signifies cleaner air.</p>
           </div>
           <div className="iframe-container w-1/2">
             <iframe

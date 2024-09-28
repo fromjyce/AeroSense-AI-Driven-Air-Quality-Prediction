@@ -20,7 +20,7 @@ export default function Navbar() {
         <Link href="#simulate" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
           Simulate
         </Link>
-        <Link href="#predict" className="px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
+        <Link href="#predict" className="poppins px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
           Predict
         </Link>
       </nav>

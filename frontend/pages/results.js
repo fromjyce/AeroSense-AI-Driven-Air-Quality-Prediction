@@ -15,18 +15,9 @@ export default function Results() {
   ];
 
   return (
-    <div className="min-h-screen result-background flex flex-col">
+    <div className="min-h-screen">
       <div className='flex flex-col items-center'>
-        <div className="flex items-center space-x-2 self-start ml-3 mt-2">
-          <Image
-            src="/logo.png"
-            alt="AirSense"
-            width={55}
-            height={55}
-          />
-          <h1 className="text-3xl font-bold results-logo">AeroSense</h1>
-        </div>
-        <h1 className="text-3xl font-bold text-center predict-title">View your Predictions</h1>
+        <h1 className="text-3xl font-bold text-center predict-title questrial">View your Predictions</h1>
       </div>
       <div className='flex flex-col gap-5'>
         <div className="flex flex-row justify-between p-5">

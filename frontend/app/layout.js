@@ -52,9 +52,9 @@ export default function RootLayout({ children }) {
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </head>
       <body className={`${bebas_neue_init.variable} ${questrial_init.variable} ${poppins_init.variable} ${oswald_init.variable} ${josefin_init.variable} ${dela_gothic_init.variable}`}>
-      <Navbar /> 
-        {children}
-      <UpdateFooter />
+      <Navbar />
+        <main>{children}</main>
+        <UpdateFooter />
       </body>
     </html>
   );

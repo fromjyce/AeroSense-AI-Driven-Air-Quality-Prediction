@@ -8,7 +8,7 @@ export default function About() {
         </h2>
         <p className="text-lg josefin_sans leading-relaxed">
         
-AeroSense is an innovative web platform developed as part of the BuzzOnHackathon by IIT Kanpur, powered by Intel using the Intel Tiber Cloud Developer Platform. This tool predicts and analyzes the Air Quality Index (AQI) across various cities and stations in India in real-time. Built with NextJS, Tailwind CSS, and Django, it incorporates advanced time series models, including LSTM networks, optimized with Intel AI Analytics Toolkit for enhanced performance. Key features include AQI prediction, real-time monitoring, forecasting, an interactive AQI simulator, and AI-driven insights, empowering users with actionable data for informed decisions and environmental awareness. Read <span><a href="#" className="more-details-about-product font-bold">More.</a></span></p>
+AeroSense is an innovative web platform developed as part of the BuzzOnHackathon by IIT Kanpur, powered by Intel using the Intel Tiber Cloud Developer Platform. This tool predicts and analyzes the Air Quality Index (AQI) across various cities and stations in India in real-time. Built with NextJS, Tailwind CSS, and Django, it incorporates advanced time series models, including LSTM networks, optimized with Intel AI Analytics Toolkit for enhanced performance. Key features include AQI prediction, real-time monitoring, forecasting, an interactive AQI simulator, and AI-driven insights, empowering users with actionable data for informed decisions and environmental awareness. Read <span><a href="/about" className="more-details-about-product font-bold">More.</a></span></p>
       </div>
       <div className="image-content flex flex-row gap-4 flex-1 items-end">
         <img

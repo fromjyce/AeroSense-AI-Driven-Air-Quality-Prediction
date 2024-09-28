@@ -11,7 +11,9 @@ export default function Navbar() {
           width={55}
           height={55}
         />
-        <h1 className="text-3xl font-bold poppins dela_gothic_one">AeroSense</h1>
+        <Link href="/" className="text-3xl font-bold poppins dela_gothic_one">
+          AeroSense
+        </Link>
       </div>
       <nav className="flex space-x-8">
         <Link href="#about" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">

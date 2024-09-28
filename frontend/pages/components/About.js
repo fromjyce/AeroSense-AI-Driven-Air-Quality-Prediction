@@ -6,7 +6,7 @@ export default function About() {
           <span className="questrial">About</span>
           <span className="questrial title-card"> AeroSense.</span>
         </h2>
-        <p className="josefin_sans leading-relaxed text-lg"> {/* Change text-lg to your desired size */}
+        <p className="josefin_sans leading-relaxed">
           <span className="aerospace-title-change">AeroSpace</span> is an innovative web-based solution designed to empower users with real-time predictions and analyses of air quality across various cities and stations in India. Our platform leverages advanced machine learning models to provide accurate AQI forecasts, enabling individuals and policymakers to make informed decisions for healthier living. With features like real-time monitoring, dynamic simulations, integrated weather data, and AI-driven suggestions, AeroSpace transforms complex air quality metrics into actionable insights, ensuring a cleaner, safer environment for all. Read <span><a href="/about" className="more-details-about-product font-bold">More.</a></span>
         </p>
       </div>

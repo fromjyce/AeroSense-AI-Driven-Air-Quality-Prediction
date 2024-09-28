@@ -7,7 +7,8 @@ export default function About() {
           <span className="questrial title-card"> AeroSense.</span>
         </h2>
         <p className="text-lg josefin_sans leading-relaxed">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Read <span><a href="#" className="more-details-about-product font-bold">More.</a></span></p>
+        
+AeroSense is an innovative web platform developed as part of the BuzzOnHackathon by IIT Kanpur, powered by Intel using the Intel Tiber Cloud Developer Platform. This tool predicts and analyzes the Air Quality Index (AQI) across various cities and stations in India in real-time. Built with NextJS, Tailwind CSS, and Django, it incorporates advanced time series models, including LSTM networks, optimized with Intel AI Analytics Toolkit for enhanced performance. Key features include AQI prediction, real-time monitoring, forecasting, an interactive AQI simulator, and AI-driven insights, empowering users with actionable data for informed decisions and environmental awareness. Read <span><a href="#" className="more-details-about-product font-bold">More.</a></span></p>
       </div>
       <div className="image-content flex flex-row gap-4 flex-1 items-end">
         <img

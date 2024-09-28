@@ -5,8 +5,7 @@ export default function Simulator() {
         <div className="flex flex-row">
           <div className="paragraph-content w-1/2">
             <p className="text-lg josefin_sans">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </p>
+            The Air Pollution Simulator allows users to explore the complex relationship between weather, geography, and air quality by adjusting various environmental factors. Users can modify conditions such as the number of cars and power plants, both with and without pollution control devices, to see their impact on the Air Quality Index (AQI). This interactive tool provides a visual representation of air quality changes, helping users understand the significance of human activity on air pollution levels.            </p>
           </div>
           <div className="iframe-container w-1/2">
             <iframe

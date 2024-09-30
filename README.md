@@ -1,93 +1,91 @@
-# **AQI Prediction & Forecasting Web Application**
+# **AeroSense: AI-Driven Air Quality Prediction and Forecasting**
 
-Welcome to the **AeroSense-AI-Driven-Air-Quality-Prediction** – a  intuitive, and interactive tool for predicting, monitoring, and simulating AQI across Indian cities and stations in real-time. Leveraging  machine learning models, deep learning techniques, and time-series forecasting, this application offers users a comprehensive view of both present and future air quality, empowering individuals and policymakers with actionable insights.
+The **AeroSense** web application is an advanced tool designed for real-time prediction, monitoring, and simulation of Air Quality Index (AQI) across major cities and stations in India. Utilizing cutting-edge machine learning models, deep learning techniques, and time-series forecasting, AeroSense offers users comprehensive insights into both current and future air quality, empowering individuals and policymakers to make data-driven decisions regarding environmental health.
 
-## **Features Overview**
+## **Key Features**
 
 ### **AQI Prediction**
-Predict air quality for any city or station with just a few clicks! Our application uses advanced **time-series models** to generate pollutant concentration predictions, which are then processed through a deep learning network to compute AQI as per **CPCB AQI calculation rules**. Users can easily:
+AeroSense allows users to predict air quality with precision across any city or station in India. The application leverages sophisticated **time-series models** to forecast pollutant concentrations, which are then processed through deep learning networks to compute AQI based on **CPCB AQI calculation standards**. Users can:
 
-- Select a city or station.
-- Specify a future date and time.
-- Get immediate predictions for air quality based on pollutant concentration forecasts.
+- Select a city or monitoring station.
+- Specify a future date and time for prediction.
+- Receive immediate air quality predictions based on forecasted pollutant levels.
 
-### 📊 **Real-time AQI Monitoring**
-Access real-time air quality data across **12 major metro cities in India** along with an overview of the entire nation. The dashboard helps you:
+### **Real-time AQI Monitoring**
+Access live AQI data for **12 major metro cities** in India, along with a nationwide overview. The intuitive dashboard enables users to:
 
-- View current AQI levels.
-- Compare air quality between cities.
-- Get an at-a-glance view of the nation’s overall air quality condition.
+- Track current AQI levels in real time.
+- Compare air quality across different cities.
+- Obtain an at-a-glance summary of the nation’s overall air quality.
 
-### 🌍 **AQI Forecasting**
-Track AQI trends with predictions for **4 days prior** and **4 days ahead** of any selected date. This forecasting tool allows users to analyze air quality patterns and prepare for potential environmental changes by:
+### **AQI Forecasting**
+Analyze AQI trends with predictions covering **four days prior** and **four days ahead** of any selected date. This feature provides users with valuable insight into historical and forecasted air quality, helping to anticipate and prepare for environmental changes by:
 
-- Exploring historical data.
-- Viewing future air quality forecasts.
-- Making informed decisions based on air quality trends.
+- Reviewing historical air quality data.
+- Exploring future AQI trends.
+- Making informed decisions based on forecasted air quality conditions.
 
-### 🌪️ **AR AQI Simulator**
-Simulate AQI outcomes by adjusting various environmental variables! Users can input dynamic factors such as **wind, sunlight, temperature, rain, cars on the road, electric vehicles, and power plants** to visualize their influence on AQI over time, offering insights into the factors driving pollution levels.
+### **AR AQI Simulator**
+AeroSense allows users to simulate future AQI outcomes by adjusting various environmental parameters. Inputs such as **wind speed, sunlight, temperature, precipitation, vehicular traffic, electric vehicle usage, and industrial activity** can be dynamically modified to visualize their potential impact on air quality, offering a clearer understanding of the factors influencing pollution levels.
 
-### 🌦️ **Weather Integration**
-Stay updated on weather conditions alongside AQI data. This dashboard includes weather-related information, including:
+### **Weather Integration**
+Weather conditions are seamlessly integrated into the dashboard, providing users with up-to-date information on:
 
 - Current **temperature, humidity, precipitation, and wind speed**.
-- **5-day weather forecast**, helping users make informed choices based on both weather and air quality.
+- **5-day weather forecast**, helping users plan ahead based on both weather and air quality predictions.
 
-### 💡 **AI-Driven Insights and Suggestions**
-Our AI tool leverages **Large Language Models (LLMs)** to provide personalized insights and recommendations based on AQI forecasts. The AI suggests actions to mitigate pollution (e.g., use of electric vehicles, planting trees) and answers queries about:
+### **AI-Driven Insights and Recommendations**
+The AI tool within AeroSense leverages **Large Language Models (LLMs)** to provide tailored insights and actionable recommendations based on AQI forecasts. Users can receive advice on:
 
-- Environmental policies.
-- Health implications of AQI.
-- Strategies for reducing pollution.
+- Environmental policies and their implications.
+- Health risks associated with varying AQI levels.
+- Strategies to mitigate pollution, including the promotion of electric vehicles and afforestation efforts.
 
-### 🤖 **Air Quality Prediction Model using LSTM Neural Networks**
-We employ **Long Short-Term Memory (LSTM) Neural Networks** for time-series forecasting of air quality. Our model is designed to:
+### **LSTM Neural Network for Air Quality Prediction**
+AeroSense utilizes **Long Short-Term Memory (LSTM) Neural Networks** for time-series forecasting of air quality. This model is optimized to:
 
-- Predict future AQI values based on historical pollutant data.
-- Analyze data from multiple air quality stations (PM2.5, NO2, CO, SO2, O3, and more).
-- Incorporate **temporal features** like day, month, hour, and minute for improved predictions.
+- Predict future AQI values by analyzing historical pollutant data.
+- Analyze data from multiple air quality stations, including **PM2.5, NO2, CO, SO2, O3**, and other pollutants.
+- Incorporate **temporal features** such as date, time, and seasonality for improved prediction accuracy.
 
 ## **Technology Stack**
 
-- **Frontend:** HTML5, CSS3, JavaScript (React.js)
-- **Backend:** Python, Flask
+- **Frontend:** HTML5, CSS3 (Tailwind CSS), JavaScript (Next.JS)
+- **Backend:** Python & Django
 - **Machine Learning & Deep Learning:** TensorFlow, Keras, LSTM Neural Networks
-- **Data Handling & Processing:** Pandas, NumPy, Scikit-learn
-- **APIs:** Integration with real-time AQI data APIs and weather APIs
-- **Cloud Services:** AWS or GCP (for deployment)
-- **Visualization Tools:** Plotly, D3.js (for interactive graphs and simulations)
+- **Data Processing:** Pandas, NumPy, Scikit-learn
+- **API Integration:** Real-time AQI data APIs and weather forecast APIs
 
-## **How it Works**
+## **How AeroSense Works**
 
-1. **Data Collection:** The system continuously fetches real-time AQI data from monitoring stations and weather information through APIs.
-2. **Preprocessing:** The data undergoes rigorous preprocessing, including **feature scaling, sequence creation**, and **station-specific** handling.
-3. **Prediction:** Using **LSTM models**, pollutant concentrations are forecasted, followed by deep learning-based AQI calculation.
-4. **Interactive UI:** Users interact with a simple yet powerful interface to select cities, dates, and prediction parameters.
-5. **Simulation:** Input variables like temperature, wind, and vehicle count, and see their impact on AQI in real-time.
+1. **Data Collection:** Real-time AQI and weather data are continuously fetched from monitoring stations and external APIs.
+2. **Data Preprocessing:** The raw data is processed, including **feature scaling** and **sequence creation**, to prepare it for prediction.
+3. **Prediction Engine:** Using **LSTM models**, future pollutant concentrations are forecasted, and AQI values are computed.
+4. **Interactive User Interface:** Users can explore predictions through an intuitive interface, selecting cities, dates, and simulation variables.
+5. **Simulation & Insights:** Input environmental factors such as temperature and vehicular traffic, and visualize their real-time effect on future AQI.
 
-## **Usage Instructions**
+## **Getting Started**
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repo-name/aqi-prediction-app.git
-   cd aqi-prediction-app
+   git clone https://github.com/fromjyce/AeroSense-AI-Driven-Air-Quality-Prediction.git aerosense
+   cd aerosense
    ```
 
 2. **Install Dependencies**
    Ensure you have Python and Node.js installed.
    ```bash
-   pip install -r requirements.txt
-   npm install
+   cd backend && pip install -r requirements.txt
+   cd frontend && npm install
    ```
 
 3. **Run the Application**
    ```bash
-   # Start the backend (Flask)
-   python app.py
+   # Start the backend
+   cd backend && python manage.py runserver
 
-   # Start the frontend (React.js)
-   npm start
+   # Start the frontend
+   cd frontend && npm run dev
    ```
 
 4. **Access the Dashboard**
@@ -95,16 +93,22 @@ We employ **Long Short-Term Memory (LSTM) Neural Networks** for time-series fore
 
 ## **Future Enhancements**
 
-- **Mobile App Development** for on-the-go air quality monitoring and predictions.
-- **Advanced AI Suggestions** incorporating policy updates and more granular health impact advice.
-- **Extended AQI Monitoring** for additional cities and rural areas in India.
-- **Global AQI Tracking** for international air quality comparison and insights.
+- Development of a **mobile application** for on-the-go AQI monitoring and forecasting.
+- Enhanced **AI-driven suggestions** with more granular insights into health risks and mitigation strategies.
+- Expansion of AQI monitoring to cover additional cities and rural regions across India.
+- Global AQI tracking for international comparison and insights into air quality trends worldwide.
 
-## **License**
+## Contact
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
+If you come across any issues, have suggestions for improvement, or want to discuss further enhancements, feel free to contact me at [jaya2004kra@gmail.com](mailto:jaya2004kra@gmail.com). Your feedback is greatly appreciated.
 
----
+## License
 
-Thank you for using our AQI Prediction and Forecasting Tool! We hope it empowers you to make informed decisions about air quality and helps drive positive change for a cleaner, healthier future.
+All the code and resources in this repository are licensed under the GNU General Public License. You are free to use, modify, and distribute the code under the terms of this license. However, I do not take responsibility for the accuracy or reliability of the programs.
 
+## Our Social Profiles:
+
+- [**LINKEDIN - Jayashre**](https://www.linkedin.com/in/jayashrek/)
+- [**LINKEDIN - Harshitha**](https://www.linkedin.com/in/harshitha-sundar-118840259/)
+- [**LINKEDIN - Padmajaa**](https://www.linkedin.com/in/padmajaa-sridhar/)
+- [**LINKEDIN - Mridulla**](https://www.linkedin.com/in/mridulla-k-madhu-2b1618258/)

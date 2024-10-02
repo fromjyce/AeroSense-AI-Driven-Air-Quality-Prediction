@@ -101,6 +101,18 @@ nav a:last-child:hover {
   cursor: pointer;
 }
 
+.icon-colour {
+  color: var(--another-dark-green);
+}
+
+.hb-close-item:hover {
+color: var(--sage);
+}
+
+.hb-menu-item:hover {
+  color: var(--sage);
+}
+
 .title-card {
   color: var(--green);
 }

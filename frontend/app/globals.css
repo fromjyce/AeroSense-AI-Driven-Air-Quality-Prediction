@@ -314,11 +314,7 @@ color: var(--sage);
   border-radius: 0.5rem;
 }
 
-.first-card-footer h3 {
-  color: var(--dark-green)
-}
-
-.second-card-footer h3 {
+.first-card-footer, .second-card-footer h3 {
   color: var(--dark-green)
 }
 

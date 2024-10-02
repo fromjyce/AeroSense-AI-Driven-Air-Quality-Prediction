@@ -397,7 +397,6 @@ color: var(--sage);
   height: 50px;
 }
 
-
 .india-name {
   color: var(--another-green);
 }
@@ -405,7 +404,6 @@ color: var(--sage);
 .update-footer-section {
   width: 100%;
   background-color: var(--another-dark-green);
-  height: 10px;
 }
 
 .aqi-widget {
@@ -480,7 +478,6 @@ color: var(--sage);
 .button-back:hover {
   background-color: rgba(101, 136, 100, 0.8);
 }
-
 
 .rules-image {
   width: 100%;

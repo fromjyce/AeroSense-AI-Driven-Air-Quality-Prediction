@@ -152,32 +152,46 @@ color: var(--sage);
 
 .dashboard-section {
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 2rem;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.first-card, .second-card {
+@media (min-width: 768px) {
+  .dashboard-section {
+    flex-direction: row;
+    padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-section {
+    gap: 3rem;
+  }
+}
+
+.first-card,
+.second-card {
   background-color: var(--second-white);
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
 
-.first-card h3 {
-  color: var(--dark-green)
-}
-
+.first-card h3,
 .second-card h3 {
-  color: var(--dark-green)
+  color: var(--dark-green);
 }
 
-.first-card {
-  width: 32%;
-}
+@media (min-width: 1024px) {
+  .first-card {
+    width: 32%;
+  }
 
-.second-card {
-  width: 68%;
+  .second-card {
+    width: 68%;
+  }
 }
 
 .uniform-width-aqi-dropdown {
@@ -372,17 +386,12 @@ color: var(--sage);
   height: 30px;
 }
 
-.spacer-height {
-  height: 50px;
-}
-
 .india-name {
   color: var(--another-green);
 }
 
-.update-footer-section {
-  width: 100%;
-  background-color: var(--another-dark-green);
+.spacer-height {
+  height: 50px;
 }
 
 .aqi-widget {
@@ -467,3 +476,7 @@ color: var(--sage);
   margin-right: 100px;
 }
 
+.update-footer-section {
+  width: 100%;
+  background-color: var(--another-dark-green);
+}

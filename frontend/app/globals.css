@@ -122,11 +122,13 @@ color: var(--sage);
 }
 
 .about-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem;
-  gap: 3rem;
+  padding: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .about-section {
+    padding: 5rem;
+  }
 }
 
 .aerospace-title-change {
@@ -138,17 +140,6 @@ color: var(--sage);
   color: var(--sage);
 }
 
-.text-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.text-content p {
-  font-size: 1.145rem;
-  line-height: 1.75rem;
-}
-
 .more-details-about-product {
   text-decoration: underline;
   color: var(--another-dark-dark-green);
@@ -157,18 +148,6 @@ color: var(--sage);
 .more-details-about-product:hover {
   color: rgba(101, 136, 100, 0.8);
   cursor: pointer; 
-}
-
-.image-content {
-  display: flex;
-  flex-direction: row;
-  gap: 6rem;
-  align-items: center;
-}
-
-.image-content img {
-  max-width: 300px;
-  height: auto;
 }
 
 .dashboard-section {

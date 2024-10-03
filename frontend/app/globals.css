@@ -413,9 +413,33 @@ color: var(--sage);
   text-decoration: underline;
 }
 
-.predict-title {
-  font-family: var(--font-poppins);
+.results-title {
+  color: var(--another-dark-green);
 }
+
+.results-title:hover {
+  color: var(--an-another-green);
+}
+
+.back-button {
+  background-color: var(--another-green);
+  color: var(--background);
+}
+
+.back-button:hover {
+  background-color: var(--an-another-green);
+  color: white;
+}
+
+.predict-text {
+  color: var(--another-dark-green);
+  font-weight: 800;
+}
+
+.small-tag-line {
+  font-weight: 700;
+  color: var(--another-dark-green);
+;}
 
 .first-half-info {
   margin-left: 100px;
@@ -438,15 +462,10 @@ color: var(--sage);
 .gauge-container {
   width: 100%;
   height: 100%;
-
 }
 
 .ai-suggestion-container {
   margin-top: -38px;
-}
-
-.results-logo {
-  font-family: var(--font-dela-gothic-one);
 }
 
 .guage-text {

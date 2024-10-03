@@ -1,46 +1,31 @@
-'use client';
-import Image from "next/image";
-import { useSearchParams } from 'next/navigation';
-import MapContainer from './components/MapContainer';
-import InformationBoard from './components/InformationBoard';
-import "../app/globals.css";
-import AISuggestionsContainer from './components/elements/AISuggestionsContainer';
-import Link from 'next/link';
+import Link from "next/link";
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 
 export default function Results() {
-  const searchParams = useSearchParams();
-  const message = searchParams.get('message');
-  const markers = [
-    { lat: 13.0843, lng: 80.2705, title: 'Chennai' },
-  ];
-
   return (
-    <div className="min-h-screen">
-      <div className='flex flex-col items-center'>
-        <h1 className="text-3xl font-bold text-center predict-title questrial">View your Predictions</h1>
+    <div className="results-section h-screen flex flex-col px-8">
+      <div className="flex justify-center items-center h-20 mb-4">
+        <h1 className="results-title text-center text-4xl font-bold questrial">
+          Stay Ahead: AQI Predictions & Strategies
+        </h1>
       </div>
-      <div className='flex flex-col gap-5'>
-        <div className="flex flex-row justify-between p-5">
-          <div className="w-1/3 mr-5 border border-gray-300 rounded-lg shadow-lg p-3 bg-white">
-            <MapContainer markers={markers} />
-          </div>
-          <div className="w-2/3 border border-gray-300 rounded-lg shadow-lg p-4 bg-white">
-            <InformationBoard />
-          </div>
+      <div className="top-section h-[55%] bg-orange-500 p-4 mb-4">
+        {/* Content for the top section */}
+      </div>
+      <div className="bottom-section h-[45%] bg-yellow-500 p-4 mb-4">
+        {/* Content for the bottom section */}
+      </div>
+
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center">
+          <Link href="/#predict" passHref>
+            <button className="w-12 h-12 rounded-full flex items-center justify-center mr-4 back-button">
+              <ArrowCircleLeftOutlinedIcon  className="w-8 h-8"/>
+            </button>
+          </Link>
+          <span className="text-xl questrial predict-text">Try Predicting Again?</span>
         </div>
-        <div className='p-5 ai-suggestion-container'>
-          <AISuggestionsContainer /> 
-        </div>
-        <div className='flex flex-row justify-center items-center p-5 button-container'>
-          <div className='text-center flex flex-row gap-3 justify-center items-center'>
-            <p className="text-xl">Want to Predict Again?</p>
-            <Link href="/">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 button-back transition text-lg">
-                Go Home
-              </button>
-            </Link>
-          </div>
-        </div>
+        <span className="text-xl questrial small-tag-line">Predicting a Cleaner Tomorrow.</span>
       </div>
     </div>
   );

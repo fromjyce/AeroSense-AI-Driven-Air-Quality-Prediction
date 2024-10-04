@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Map from './GoogleMap';
+import Map from '../widgets/GoogleMap';
 
 const MapContainer = ({ markers }) => {
   return (

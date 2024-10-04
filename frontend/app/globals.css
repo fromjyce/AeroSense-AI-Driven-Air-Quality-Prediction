@@ -451,6 +451,10 @@ color: var(--sage);
   height: 100%;
 }
 
+.title-sugg {
+  color: var(--another-dark-green);
+}
+
 .first-half-info {
   margin-left: 100px;
 }

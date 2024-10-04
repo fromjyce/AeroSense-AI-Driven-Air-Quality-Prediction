@@ -8,9 +8,9 @@ export default function AISuggestionsContainer() {
     <div className="rounded-lg shadow-lg bg-white ai-suggs p-4">
       <div className='flex flex-row gap-2'>
       <TipsAndUpdatesTwoToneIcon sx={{ color: '#638763'}}/>
-      <h2 className="text-xl font-semibold questrial title-sugg">Breathe Smarter with AI</h2>
+      <h2 className="text-xl font-black questrial title-sugg">Breathe Smarter with AI</h2>
       </div>
-      <div className="text-lg questrial font-bold">
+      <div className="text-lg questrial font-semibold">
       <Typewriter
         onInit={(typewriter) => {
         typewriter

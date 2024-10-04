@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
-import SuggRules from "./components/SuggRules";
+import MapSuggRules from "./components/MapSuggRules";
 
 export default function Results() {
   return (
@@ -13,7 +13,7 @@ export default function Results() {
       <div className="top-section h-[50%] sm:h-[55%] md:h-[60%] bg-orange-500 mb-4 sm:mb-6">
       </div>
       <div className="bottom-section h-[40%] sm:h-[35%] md:h-[40%] mb-4 sm:mb-6">
-        <SuggRules />
+        <MapSuggRules />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6">
         <div className="flex items-center mb-4 sm:mb-0">

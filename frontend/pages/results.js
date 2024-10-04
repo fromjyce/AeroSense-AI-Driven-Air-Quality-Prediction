@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import MapSuggRules from "./components/MapSuggRules";
+import ResultCharts from "./components/ResultCharts";
 
 export default function Results() {
   return (
@@ -10,7 +11,8 @@ export default function Results() {
           Stay Ahead: AQI Predictions & Strategies
         </h1>
       </div>
-      <div className="top-section h-[50%] sm:h-[55%] md:h-[60%] bg-orange-500 mb-4 sm:mb-6">
+      <div className="top-section h-[50%] sm:h-[55%] md:h-[60%] mb-4 sm:mb-6">
+        <ResultCharts />
       </div>
       <div className="bottom-section h-[40%] sm:h-[35%] md:h-[40%] mb-4 sm:mb-6">
         <MapSuggRules />

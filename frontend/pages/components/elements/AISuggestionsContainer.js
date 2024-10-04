@@ -19,7 +19,7 @@ export default function AISuggestionsContainer() {
         .start();
           }}
           options={{
-            delay: 75,
+            delay: 80,
           }}
           />
       </div>

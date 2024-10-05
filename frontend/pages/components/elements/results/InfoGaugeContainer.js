@@ -1,5 +1,5 @@
-import GaugeContainer from "./results/GaugeContainer";
-import InfoDisplay from "./results/InfoDisplay";
+import GaugeContainer from "./GaugeContainer";
+import InfoDisplay from "./InfoDisplay";
 
 export default function InfoGaugeContainer() {
   const value = 150;

@@ -1,4 +1,4 @@
-import AISuggestionsContainer from "./elements/AISuggestionsContainer";
+import AISuggestionsContainer from "./elements/results/AISuggestionsContainer";
 import MapContainer from "./elements/MapContainer";
 
 const markers = [

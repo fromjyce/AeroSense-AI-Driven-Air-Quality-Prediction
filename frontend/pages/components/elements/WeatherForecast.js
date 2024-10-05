@@ -1,4 +1,4 @@
-import CurrentWeather from "./CurrentWeather";
+import CurrentWeather from "./main/CurrentWeather";
 import WidgetContainer from "./WidgetContainer";
 
 

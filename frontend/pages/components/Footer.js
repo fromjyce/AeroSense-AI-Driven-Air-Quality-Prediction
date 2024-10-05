@@ -1,5 +1,5 @@
 import Simulator from "./elements/main/Simulator";
-import WeatherForecast from "./elements/WeatherForecast";
+import WeatherForecast from "./elements/main/WeatherForecast";
 
 export default function Footer() {
   return (

@@ -1,5 +1,5 @@
-import CurrentWeather from "./main/CurrentWeather";
-import WidgetContainer from "./main/WidgetContainer";
+import CurrentWeather from "./CurrentWeather";
+import WidgetContainer from "./WidgetContainer";
 
 
 export default function WeatherForecast() {

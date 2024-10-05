@@ -1,4 +1,4 @@
-import GaugeContainer from "./GaugeContainer";
+import GaugeContainer from "./results/GaugeContainer";
 import InfoDisplay from "./InfoDisplay";
 
 export default function InfoGaugeContainer() {

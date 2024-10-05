@@ -27,7 +27,7 @@ export default function BarChartContainer() {
         xAxis={[
           {
             scaleType: 'band',
-            categoryGapRatio: 0.5,
+            categoryGapRatio: 0.3,
             data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
             label: 'Dates',
             labelStyle: customFont,

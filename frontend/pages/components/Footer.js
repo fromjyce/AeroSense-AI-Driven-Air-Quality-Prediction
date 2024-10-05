@@ -1,4 +1,4 @@
-import Simulator from "./elements/Simulator";
+import Simulator from "./elements/main/Simulator";
 import WeatherForecast from "./elements/WeatherForecast";
 
 export default function Footer() {

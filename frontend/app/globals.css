@@ -488,6 +488,11 @@ color: var(--sage);
   color: var(--dark-green);
 }
 
+.pollutant-paragraph{
+  margin-right: 80px;
+  font-weight: 500;
+}
+
 .update-footer-section {
   width: 100%;
   background-color: var(--another-dark-green);

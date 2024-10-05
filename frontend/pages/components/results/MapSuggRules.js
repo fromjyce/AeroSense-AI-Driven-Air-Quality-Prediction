@@ -1,5 +1,5 @@
-import AISuggestionsContainer from "./elements/results/AISuggestionsContainer";
-import MapContainer from "./elements/results/MapContainer";
+import AISuggestionsContainer from "../elements/results/AISuggestionsContainer";
+import MapContainer from "../elements/results/MapContainer";
 
 const markers = [
   { lat: 13.0843, lng: 80.2705, title: 'Chennai' },

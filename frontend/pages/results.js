@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
-import MapSuggRules from "./components/MapSuggRules";
-import ResultCharts from "./components/ResultCharts";
+import MapSuggRules from "./components/results/MapSuggRules";
+import ResultCharts from "./components/results/ResultCharts";
 
 export default function Results() {
   return (

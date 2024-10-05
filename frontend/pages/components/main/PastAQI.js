@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import CurrentAQIWidget from './widgets/CurrentAQIWidget';
+import CurrentAQIWidget from '../widgets/CurrentAQIWidget';
 
 export default function PastAQI() {
   const [aqiData, setAqiData] = useState([]);

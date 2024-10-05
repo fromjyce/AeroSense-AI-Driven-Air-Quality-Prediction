@@ -1,5 +1,5 @@
-import PredictCard from "./elements/main/PredictCard";
-import CitiesAQIWidgetContainer from "./elements/main/CitiesAQIWidgetContainer";
+import PredictCard from "../elements/main/PredictCard";
+import CitiesAQIWidgetContainer from "../elements/main/CitiesAQIWidgetContainer";
 
 export default function Dashboard() {
   return (

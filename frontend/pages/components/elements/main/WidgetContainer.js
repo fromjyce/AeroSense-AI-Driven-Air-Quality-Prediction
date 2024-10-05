@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import WeatherWidget from "../widgets/WeatherWidget";
+import WeatherWidget from "../../widgets/WeatherWidget";
 
 export default function WidgetContainer() {
   const [weatherData, setWeatherData] = useState([]);

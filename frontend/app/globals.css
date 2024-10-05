@@ -476,6 +476,18 @@ color: var(--sage);
   color: var(--another-green);
 }
 
+.info-text {
+  font-size: 0.89rem;
+}
+
+.prefix {
+  color: var(--another-dark-green);
+}
+
+.suffix {
+  color: var(--dark-green);
+}
+
 .update-footer-section {
   width: 100%;
   background-color: var(--another-dark-green);

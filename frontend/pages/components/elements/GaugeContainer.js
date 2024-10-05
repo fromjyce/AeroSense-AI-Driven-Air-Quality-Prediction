@@ -27,7 +27,7 @@ export default function GaugeContainer({ value }) {
         <h2 className="text-xl font-bold oswald gauge-project-text mb-2">Projected AQI Levels</h2>
         <p className="font-bold poppins mb-1 aqi-level-message">{aqiMessage}</p>
         <p className="poppins mb-1">Predicted by our advanced machine learning model, powered by Intel Software.</p>
-        <p className="poppins">This AQI value complies with the <a href="https://cpcb.nic.in/" target="_blank" rel="noopener noreferrer" className="cpcb-text-link font-bold">Central Pollution Control Board, India</a> guidelines for air quality calculation.</p>
+        <p className="poppins">This AQI value complies with the <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fcpcb.nic.in%2Fupload%2Fnational-air-quality-index%2FAQI-Calculator.xls&wdOrigin=BROWSELINK" target="_blank" rel="noopener noreferrer" className="cpcb-text-link font-bold">Central Pollution Control Board, India</a> guidelines for air quality calculation.</p>
       </div>
       <div>
         <GaugeComponent

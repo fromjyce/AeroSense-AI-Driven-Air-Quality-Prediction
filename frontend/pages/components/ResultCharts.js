@@ -1,5 +1,5 @@
 import InfoGaugeContainer from "./elements/InfoGaugeContainer";
-import BarPieChartContainer from "./elements/BarPieChartContainer";
+import BarPieChartContainer from "./elements/results/BarPieChartContainer";
 
 export default function ResultCharts() {
     return (

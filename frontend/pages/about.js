@@ -1,4 +1,5 @@
 import Head from "next/head";
+import UpdateFooter from "./UpdateFooter";
 
 export default function About() {
     return (
@@ -11,6 +12,7 @@ export default function About() {
         <h1>About Page</h1>
         <p>This is the about page content.</p>
       </div>
+      <UpdateFooter/>
       </>
     );
   }

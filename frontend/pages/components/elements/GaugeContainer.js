@@ -22,7 +22,7 @@ export default function GaugeContainer({ value }) {
   const aqiMessage = getAQIMessage(value);
 
   return (
-    <div className="grid grid-cols-2 gap-1">
+    <div className="grid grid-cols-2">
       <div className="text-left">
         <h2 className="text-xl font-bold oswald gauge-project-text mb-2">Projected AQI Levels</h2>
         <p className="font-bold poppins mb-1 aqi-level-message">{aqiMessage}</p>
@@ -34,7 +34,7 @@ export default function GaugeContainer({ value }) {
           value={value}
           type="radial"
           minValue={0}
-          className="main-gauge josefin_san flex justify-end"
+          className="main-gauge josefin_san flex"
           maxValue={400}
           style={{ top: '0', bottom: '0', left: '0', right: '0' }}
           labels={{

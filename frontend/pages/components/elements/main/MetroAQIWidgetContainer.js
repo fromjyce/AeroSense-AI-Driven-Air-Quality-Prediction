@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import CityAQIWidget from '../widgets/CityAQIWidget';
+import CityAQIWidget from '../../widgets/CityAQIWidget';
 
 export default function MetroAQIWidgetContainer() {
   const [metroCitiesData, setMetroCitiesData] = useState([]);

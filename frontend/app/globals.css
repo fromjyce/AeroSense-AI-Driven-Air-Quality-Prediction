@@ -455,39 +455,25 @@ color: var(--sage);
   color: var(--another-dark-green);
 }
 
-.first-half-info {
-  margin-left: 100px;
+.main-gauge {
+  height: 115%;
+  width: 115%;
 }
 
-.aqi-predict-tile {
-  margin-top: 20px;
-}
-
-.gauge-main-container {
-  width: 360px;
-  height: 340px;
-  background-color: var(--another-dark-dark-green);
-}
-
-.second-half-gauge {
-  margin-left: 60px;
-}
-
-.gauge-container {
-  width: 100%;
-  height: 100%;
-}
-
-.ai-suggestion-container {
-  margin-top: -38px;
-}
-
-.guage-text {
+.gauge-project-text {
   color: var(--another-dark-green);
 }
 
-.image-con {
-  margin-right: 100px;
+.aqi-level-message {
+  color: var(--another-dark-dark-green);
+}
+
+.cpcb-text-link {
+  color: var(--another-dark-green);
+}
+
+.cpcb-text-link:hover {
+  color: var(--another-green);
 }
 
 .update-footer-section {

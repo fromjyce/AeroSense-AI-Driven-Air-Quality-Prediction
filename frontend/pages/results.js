@@ -1,4 +1,4 @@
-import Head from "next/head"; // Import Head from next/head
+import Head from "next/head";
 import Link from "next/link";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import MapSuggRules from "./components/results/MapSuggRules";

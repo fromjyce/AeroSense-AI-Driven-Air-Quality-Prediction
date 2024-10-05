@@ -1,4 +1,4 @@
-import PredictCard from "./elements/PredictCard";
+import PredictCard from "./elements/main/PredictCard";
 import CitiesAQIWidgetContainer from "./elements/main/CitiesAQIWidgetContainer";
 
 export default function Dashboard() {

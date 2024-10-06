@@ -207,7 +207,10 @@ const handleEndTimeChange = (e) => {
       })
       .then((data) => {
         console.log('Success:', data);
-        window.location.href = `/results?data=${encodeURIComponent(JSON.stringify(data))}`; 
+        const queryParams = new URLSearchParams({
+          data: encodeURIComponent(JSON.stringify(payload)),
+        }).toString();
+        window.location.href = `/results?${queryParams}`;
       })
       .catch((error) => {
         console.error('Error:', error);

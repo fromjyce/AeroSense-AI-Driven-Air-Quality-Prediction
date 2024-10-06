@@ -1,4 +1,5 @@
 import BarChartContainer from "../../widgets/BarChartContainer";
+import PieChartContainer from "../../widgets/PieChartContainer";
 
 export default function BarPieChartContainer() {
   return (
@@ -8,7 +9,7 @@ export default function BarPieChartContainer() {
       </h2>
       <div className="flex">
         <div className="w-2/3">
-          <BarChartContainer />
+          <PieChartContainer />
         </div>
         <div className="w-1/3 pollutant-paragraph">
           <p className="poppins">

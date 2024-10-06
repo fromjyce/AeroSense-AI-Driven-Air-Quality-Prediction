@@ -1,6 +1,8 @@
 import BarChartContainer from "../../widgets/BarChartContainer";
 import PieChartContainer from "../../widgets/PieChartContainer";
 
+/*'PM2.5','PM10', 'NO', 'NO2', 'NOx', 'CO', 'SO2', 'O3', 'Benzene'*/
+
 export default function BarPieChartContainer() {
   return (
     <div>
@@ -19,3 +21,4 @@ export default function BarPieChartContainer() {
     </div>
   );
 }
+  

@@ -66,7 +66,7 @@ export default function PieChartContainer() {
           left: 70,
           right: 0,
           top: 0,
-          bottom: 80,
+          bottom: 100,
         }}
         series={[
           {

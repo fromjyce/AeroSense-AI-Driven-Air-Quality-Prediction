@@ -22,7 +22,7 @@ export default function GaugeContainer({ value }) {
   const aqiMessage = getAQIMessage(value);
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 poppins">
       <div className="text-left">
         <h2 className="text-xl font-bold oswald gauge-project-text mb-2">Projected AQI Levels</h2>
         <p className="font-bold poppins mb-1 aqi-level-message">{aqiMessage}</p>

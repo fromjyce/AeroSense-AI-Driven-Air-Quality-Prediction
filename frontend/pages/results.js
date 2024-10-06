@@ -57,7 +57,10 @@ export default function Results() {
               />
             </div>
             <div className="bottom-section h-[40%] sm:h-[35%] md:h-[40%] mb-4 sm:mb-6">
-              <MapSuggRules />
+            <MapSuggRules 
+            city={city}
+            stationId={stationId}
+          />
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6">
               <div className="flex items-center mb-4 sm:mb-0">

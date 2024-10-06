@@ -10,7 +10,7 @@ export default function InfoDisplay({
   }) {
     return (
       <div className="p-4">
-        <h2 className="text-xl font-semibold oswald gauge-project-text mb-1">Prediction Parameters</h2>
+        <h2 className="text-xl font-semibold oswald gauge-project-text mb-4">Prediction Parameters</h2>
         <div className="flex justify-between items-center">
           <div>
             {date && (

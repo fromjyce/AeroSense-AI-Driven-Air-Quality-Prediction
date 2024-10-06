@@ -1,20 +1,22 @@
 import GaugeContainer from "./GaugeContainer";
 import InfoDisplay from "./InfoDisplay";
 
-export default function InfoGaugeContainer() {
+export default function InfoGaugeContainer({ 
+  stationId, 
+  city, 
+  datetime, 
+  date, 
+  startDatetime, 
+  endDatetime, 
+  startDate, 
+  endDate 
+}) {
   const value = 150;
-  const date ="";
-  const datetime = "";
-  const city = "";
-  const stationName = "Tirupati - APPCB, Andhra Pradesh";
-  const startDate = "";
-  const endDate = "";
-  const startDatetime = "2024-10-10T18:00:00";
-  const endDatetime = "2024-10-10T18:00:00";
+  const stationName = "";
 
   return (
     <div className="flex flex-col h-full gap-y-4">
-      <div className="rounded-lg shadow-lg bg-white">
+      <div className="h-[30%] rounded-lg shadow-lg bg-white">
         <InfoDisplay 
           date={date} 
           datetime={datetime} 
@@ -27,7 +29,7 @@ export default function InfoGaugeContainer() {
         />
       </div>
       <div className="rounded-lg shadow-lg bg-white">
-        <div className="gauge-main-container p-4">
+        <div className="h-[70%] gauge-main-container p-4">
           <GaugeContainer value={value} />
         </div>
       </div>

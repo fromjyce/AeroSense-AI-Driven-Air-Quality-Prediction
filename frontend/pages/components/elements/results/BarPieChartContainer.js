@@ -26,7 +26,7 @@ export default function BarPieChartContainer() {
         </div>
         <div className="w-1/3 pollutant-paragraph">
           <p className="poppins">
-          Monitoring key air pollutants like PM2.5, PM10, NO, NO2, NOx, CO, SO2, O3, and Benzene is essential for assessing air quality and its health impacts. Understanding these concentrations allows us to make informed decisions and promote cleaner air for everyone. Stay aware of these levels to mitigate their effects and ensure a healthier environment.          </p>
+          Monitoring key air pollutants like PM2.5, PM10, NO, NO2, NOx, CO, SO2, O3, and Benzene is essential for assessing air quality and its health impacts. Understanding these concentrations allows us to make informed decisions and promote cleaner air for everyone. Stay aware of these levels to mitigate their effects and ensure a healthier environment.</p>
         </div>
       </div>
     </div>

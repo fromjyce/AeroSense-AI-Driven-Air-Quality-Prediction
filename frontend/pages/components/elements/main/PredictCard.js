@@ -207,12 +207,7 @@ const handleEndTimeChange = (e) => {
       })
       .then((data) => {
         console.log('Success:', data);
-        const query = new URLSearchParams({
-          message: data.message,
-          predictions: JSON.stringify(data.predictions),
-          originalData: JSON.stringify(payload),
-        }).toString();
-        router.push(`/results?${query}`);
+        window.location.href = `/results?data=${encodeURIComponent(JSON.stringify(data))}`; 
       })
       .catch((error) => {
         console.error('Error:', error);

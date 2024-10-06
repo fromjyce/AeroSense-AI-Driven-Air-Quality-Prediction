@@ -3,17 +3,6 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import PropTypes from 'prop-types';
 import { useDrawingArea } from '@mui/x-charts/hooks';
 
-const data = [
-  { label: 'India', value: 50000 },
-  { label: 'USA', value: 35000 },
-  { label: 'Brazil', value: 45000 },
-  { label: 'Other', value: 5000 },
-  { label: 'FF', value: 3000 },
-  { label: 'SS', value: 4000 },
-  { label: 'OFF', value: 5000 },
-  { label: 'OXX', value: 580 },
-];
-
 const colors = [
   '#007f4e',
   '#72b043',
@@ -57,7 +46,8 @@ PieCenterLabel.propTypes = {
   secondaryText: PropTypes.string.isRequired,
 };
 
-export default function PieChartContainer() {
+export default function PieChartContainer({ data }) {
+  const maxDataItem = data.reduce((prev, current) => (prev.value > current.value ? prev : current), data[0]);
   return (
     <div className='piechart-con questrial'>
       <PieChart
@@ -85,7 +75,7 @@ export default function PieChartContainer() {
           }}
           className='main-piechart'
       >
-        <PieCenterLabel primaryText="98.5K" secondaryText="Primary Pollutant" />
+        <PieCenterLabel primaryText={maxDataItem.label} secondaryText="Primary Pollutant" />
       </PieChart>
     </div>
   );

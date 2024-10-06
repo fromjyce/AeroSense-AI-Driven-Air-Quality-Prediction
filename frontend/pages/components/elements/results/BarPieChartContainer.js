@@ -3,6 +3,17 @@ import PieChartContainer from "../../widgets/PieChartContainer";
 
 /*'PM2.5','PM10', 'NO', 'NO2', 'NOx', 'CO', 'SO2', 'O3', 'Benzene'*/
 
+const chartData = [
+  { label: 'India', value: 50000 },
+  { label: 'USA', value: 35000 },
+  { label: 'Brazil', value: 45000 },
+  { label: 'Other', value: 5000 },
+  { label: 'FF', value: 3000 },
+  { label: 'SS', value: 4000 },
+  { label: 'OFF', value: 5000 },
+  { label: 'OXX', value: 580 },
+];
+
 export default function BarPieChartContainer() {
   return (
     <div>
@@ -11,7 +22,7 @@ export default function BarPieChartContainer() {
       </h2>
       <div className="flex">
         <div className="w-2/3">
-          <PieChartContainer />
+        <PieChartContainer data={chartData}/>
         </div>
         <div className="w-1/3 pollutant-paragraph">
           <p className="poppins">

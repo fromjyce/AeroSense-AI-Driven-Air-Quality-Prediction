@@ -493,6 +493,11 @@ color: var(--sage);
   font-weight: 500;
 }
 
+.main-piechart {
+  width: 425px;
+  height: 425px;
+}
+
 .update-footer-section {
   width: 100%;
   background-color: var(--another-dark-green);

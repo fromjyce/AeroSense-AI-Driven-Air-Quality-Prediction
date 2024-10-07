@@ -51,10 +51,10 @@ export default function Navbar() {
           <Link href="/about" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
             About
           </Link>
-          <Link href="#simulate" className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
+          <Link href="/#simulate" passHref className="poppins font-bold text-lg px-4 py-2 hover:text-green hover:underline">
             Simulate
           </Link>
-          <Link href="#predict" className="poppins px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
+          <Link href="/#predict" passHref className="poppins px-4 font-bold text-lg py-2 bg-green text-white rounded hover:bg-opacity-80">
             Predict
           </Link>
         </nav>
@@ -67,10 +67,10 @@ export default function Navbar() {
           <Link href="/about" onClick={closeMenu} className="text-white text-2xl font-bold poppins transition-colors duration-300 hb-menu-item">
             About
           </Link>
-          <Link href="#simulate" onClick={closeMenu} className="text-white text-2xl font-bold poppins transition-colors duration-300 hb-menu-item">
+          <Link href="/#simulate" passHref onClick={closeMenu} className="text-white text-2xl font-bold poppins transition-colors duration-300 hb-menu-item">
             Simulate
           </Link>
-          <Link href="#predict" onClick={closeMenu} className="text-white text-2xl font-bold poppins bg-green py-2 px-4 rounded transition-colors duration-300 hb-menu-item">
+          <Link href="/#predict" passHref onClick={closeMenu} className="text-white text-2xl font-bold poppins bg-green py-2 px-4 rounded transition-colors duration-300 hb-menu-item">
             Predict
           </Link>
         </div>
